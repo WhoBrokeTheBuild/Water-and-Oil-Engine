@@ -16,10 +16,60 @@
     <Filter Include="Project\Utility">
       <UniqueIdentifier>{5da9449e-82a1-44b5-9884-898416bbe446}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Project\Graphics\GraphicsSystem">
+      <UniqueIdentifier>{2a9443c4-8dc8-4219-b59b-f4c5bd4dec7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Graphics\RenderTarget">
+      <UniqueIdentifier>{101c8648-af46-4ef5-bb98-6cbfbc5d0495}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>Project</Filter>
     </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Project</Filter>
+    </ClCompile>
+    <ClCompile Include="DXGraphicsSystem.cpp">
+      <Filter>Project\Graphics\GraphicsSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="GLGraphicsSystem.cpp">
+      <Filter>Project\Graphics\GraphicsSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="DXRenderTarget.cpp">
+      <Filter>Project\Graphics\RenderTarget</Filter>
+    </ClCompile>
+    <ClCompile Include="GLRenderTarget.cpp">
+      <Filter>Project\Graphics\RenderTarget</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Game.h">
+      <Filter>Project</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseGraphicsSystem.h">
+      <Filter>Project\Graphics\GraphicsSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="DXGraphicsSystem.h">
+      <Filter>Project\Graphics\GraphicsSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="GLGraphicsSystem.h">
+      <Filter>Project\Graphics\GraphicsSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicsSystem.h">
+      <Filter>Project\Graphics\GraphicsSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseRenderTarget.h">
+      <Filter>Project\Graphics\RenderTarget</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderTarget.h">
+      <Filter>Project\Graphics\RenderTarget</Filter>
+    </ClInclude>
+    <ClInclude Include="DXRenderTarget.h">
+      <Filter>Project\Graphics\RenderTarget</Filter>
+    </ClInclude>
+    <ClInclude Include="GLRenderTarget.h">
+      <Filter>Project\Graphics\RenderTarget</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

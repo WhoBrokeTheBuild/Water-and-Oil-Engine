@@ -134,15 +134,22 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="DXGraphicsSystem.cpp" />
+    <ClCompile Include="DXRenderTarget.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GLGraphicsSystem.cpp" />
+    <ClCompile Include="GLRenderTarget.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BaseGraphicsSystem.h" />
+    <ClInclude Include="BaseRenderTarget.h" />
     <ClInclude Include="DXGraphicsSystem.h" />
+    <ClInclude Include="DXRenderTarget.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GLGraphicsSystem.h" />
+    <ClInclude Include="GLRenderTarget.h" />
     <ClInclude Include="GraphicsSystem.h" />
+    <ClInclude Include="RenderTarget.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
