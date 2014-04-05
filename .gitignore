@@ -10,9 +10,10 @@
 *.sln.docstates
 
 # Build results
-[Dd]ebug/
-[Dd]ebugPublic/
-[Rr]elease/
+Debug [OpenGL]/
+Debug [DirectX]/
+Release [OpenGL]/
+Release [DirectX]/
 x64/
 build/
 bld/
