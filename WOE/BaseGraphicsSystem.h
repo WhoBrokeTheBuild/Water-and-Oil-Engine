@@ -14,10 +14,11 @@ class BaseGraphicsSystem :
 {
 public:
 
-	inline BaseGraphicsSystem( int width, int height, string title )
+	inline BaseGraphicsSystem( int width, int height, string title, bool fullscreen = false )
 		: m_Width(width), 
 		  m_Height(height),
-		  m_Title(title)
+		  m_Title(title),
+		  m_Fullscreen(fullscreen)
 	{ }
 
 	virtual inline ~BaseGraphicsSystem( void ) { }
@@ -32,6 +33,10 @@ public:
 
 	inline void setWidth ( int width )  { resizeWindow(width, m_Height); }
 	inline void setHeight( int height ) { resizeWindow(m_Width, height); }
+
+	inline bool isFullscreen( void ) const { return m_Fullscreen; }
+	inline void setFullscreen( bool fullscreen ) { m_Fullscreen = fullscreen; }
+	inline bool toggleFullscreen( void ) { m_Fullscreen = ! m_Fullscreen; return m_Fullscreen; }
 
 #pragma endregion Properties
 
@@ -58,6 +63,8 @@ protected:
 	int				m_Width, m_Height;
 
 	RenderTarget*	mp_RenderTarget;
+
+	bool			m_Fullscreen;
 
 };
 

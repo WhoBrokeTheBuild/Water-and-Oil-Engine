@@ -28,4 +28,9 @@ Game::~Game( void )
 
 void Game::start( void )
 {
+	while (m_Running)
+	{
+		mp_GraphicsSystem->beginRender();
+		mp_GraphicsSystem->endRender();
+	}
 }

@@ -29,6 +29,8 @@ private:
 	static Game*		s_Instance;
 
 	GraphicsSystem*		mp_GraphicsSystem;
+	
+	bool				m_Running;
 
 };
 

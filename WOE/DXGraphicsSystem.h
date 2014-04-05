@@ -8,7 +8,7 @@ class DXGraphicsSystem :
 {
 public:
 
-	DXGraphicsSystem( int width, int height, string title );
+	DXGraphicsSystem( int width, int height, string title, bool fullscreen = false );
 
 	virtual ~DXGraphicsSystem( void );
 

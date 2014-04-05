@@ -42,6 +42,9 @@
     <ClCompile Include="GLRenderTarget.cpp">
       <Filter>Project\Graphics\RenderTarget</Filter>
     </ClCompile>
+    <ClCompile Include="Log.cpp">
+      <Filter>Project\Utility</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -70,6 +73,9 @@
     </ClInclude>
     <ClInclude Include="GLRenderTarget.h">
       <Filter>Project\Graphics\RenderTarget</Filter>
+    </ClInclude>
+    <ClInclude Include="Log.h">
+      <Filter>Project\Utility</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
