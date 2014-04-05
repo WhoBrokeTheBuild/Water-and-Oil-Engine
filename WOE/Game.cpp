@@ -18,15 +18,14 @@ void Game::Destroy( void )
 
 Game::Game( void )
 {
-
+	mp_GraphicsSystem = New GraphicsSystem(640, 480, "Testing");
 }
 
 Game::~Game( void )
 {
-
+	delete mp_GraphicsSystem;
 }
 
 void Game::start( void )
 {
-	system("PAUSE");
 }

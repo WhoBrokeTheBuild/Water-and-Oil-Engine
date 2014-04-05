@@ -8,6 +8,8 @@ class DXRenderTarget :
 {
 public:
 
+	virtual inline string getClassName( void ) const { return "DX Render Target"; }
+
 };
 
 #endif // WOE_DX_RENDER_TARGET_H

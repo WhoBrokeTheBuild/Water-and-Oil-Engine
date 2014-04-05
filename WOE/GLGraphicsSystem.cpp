@@ -9,3 +9,15 @@ GLGraphicsSystem::GLGraphicsSystem( int width, int height, string title )
 GLGraphicsSystem::~GLGraphicsSystem(void)
 {
 }
+
+void GLGraphicsSystem::beginRender( void )
+{
+}
+
+void GLGraphicsSystem::endRender( void )
+{
+}
+
+void GLGraphicsSystem::doResizeWindow( void )
+{
+}

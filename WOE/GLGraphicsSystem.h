@@ -12,7 +12,14 @@ public:
 
 	virtual ~GLGraphicsSystem( void );
 
+	virtual inline string getClassName( void ) const { return "GL Graphics System"; }
+
+	virtual void beginRender( void );
+	virtual void endRender( void );
+
 protected:
+
+	virtual void doResizeWindow( void );
 
 };
 

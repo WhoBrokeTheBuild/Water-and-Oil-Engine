@@ -12,7 +12,14 @@ public:
 
 	virtual ~DXGraphicsSystem( void );
 
+	virtual inline string getClassName( void ) const { return "DX Graphics System"; }
+
+	virtual void beginRender( void );
+	virtual void endRender( void );
+
 protected:
+
+	virtual void doResizeWindow( void );
 
 };
 

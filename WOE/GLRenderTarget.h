@@ -8,6 +8,8 @@ class GLRenderTarget :
 {
 public:
 
+	virtual inline string getClassName( void ) const { return "GL Render Target"; }
+
 };
 
 #endif // WOE_GL_RENDER_TARGET_H
