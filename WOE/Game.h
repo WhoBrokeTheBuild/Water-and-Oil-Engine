@@ -1,17 +1,24 @@
 #ifndef WOE_GAME_H
 #define WOE_GAME_H
 
-#include <Arc/ManagedObject.h>
+#include "EventDispatcher.h"
 
 #include "GraphicsSystem.h"
-//#include "AudioSystem.h"
 
-using Arc::ManagedObject;
+class GameTime;
 
 class Game :
-	public ManagedObject
+	public EventDispatcher
 {
 public:
+
+	static const EventType		EVENT_UPDATE_START,
+								EVENT_UPDATE,
+								EVENT_UPDATE_END,
+								EVENT_RENDER_START,
+								EVENT_RENDER,
+								EVENT_RENDER_END,
+								EVENT_EXIT;
 
 	static Game* Instance( void );
 
@@ -20,6 +27,18 @@ public:
 	virtual inline string getClassName( void ) const { return "Game"; }
 
 	void start( void );
+
+	void update( void );
+	void render( void );
+
+#pragma region Event Handlers
+
+	inline void evtExit( const Event& event )
+	{
+		m_Running = false;
+	}
+
+#pragma endregion Event Handlers
 
 private:
 
@@ -31,6 +50,8 @@ private:
 	GraphicsSystem*		mp_GraphicsSystem;
 	
 	bool				m_Running;
+	
+	GameTime*			mp_GameTime;
 
 };
 

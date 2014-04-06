@@ -22,6 +22,18 @@
     <Filter Include="Project\Graphics\RenderTarget">
       <UniqueIdentifier>{101c8648-af46-4ef5-bb98-6cbfbc5d0495}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Project\Timing">
+      <UniqueIdentifier>{4d5b6042-217a-42d6-b39f-2b8093c376d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Tests">
+      <UniqueIdentifier>{a1701313-dd0e-4dac-8cd7-f6dc069775b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Logs">
+      <UniqueIdentifier>{2cfb851e-2567-47fe-b3ce-b3ef5148bbe1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Events">
+      <UniqueIdentifier>{285d9c59-bc63-4c0d-93be-74f64b59104f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -44,6 +56,18 @@
     </ClCompile>
     <ClCompile Include="Log.cpp">
       <Filter>Project\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="EventDispatcher.cpp">
+      <Filter>Project\Events</Filter>
+    </ClCompile>
+    <ClCompile Include="Event.cpp">
+      <Filter>Project\Events</Filter>
+    </ClCompile>
+    <ClCompile Include="GameTime.cpp">
+      <Filter>Project\Timing</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>Project\Timing</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -77,5 +101,43 @@
     <ClInclude Include="Log.h">
       <Filter>Project\Utility</Filter>
     </ClInclude>
+    <ClInclude Include="Defines.h">
+      <Filter>Project</Filter>
+    </ClInclude>
+    <ClInclude Include="Tests.h">
+      <Filter>Project\Tests</Filter>
+    </ClInclude>
+    <ClInclude Include="GameTimeTests.h">
+      <Filter>Project\Tests</Filter>
+    </ClInclude>
+    <ClInclude Include="EventData.h">
+      <Filter>Project\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="EventDispatcher.h">
+      <Filter>Project\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="Event.h">
+      <Filter>Project\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="Delegate.h">
+      <Filter>Project\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="Callbacks.h">
+      <Filter>Project\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="GameTime.h">
+      <Filter>Project\Timing</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>Project\Timing</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="error.log">
+      <Filter>Project\Logs</Filter>
+    </Text>
+    <Text Include="info.log">
+      <Filter>Project\Logs</Filter>
+    </Text>
   </ItemGroup>
 </Project>

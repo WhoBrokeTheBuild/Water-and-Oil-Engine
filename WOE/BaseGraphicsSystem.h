@@ -5,6 +5,7 @@
 #include <string>
 
 class RenderTarget;
+class GameTime;
 
 using Arc::ManagedObject;
 using std::string;
@@ -47,6 +48,8 @@ public:
 
 		doResizeWindow();
 	}
+	
+	virtual void update( const GameTime* pGameTime ) = 0;
 
 	virtual void beginRender( void ) = 0;
 	virtual void endRender  ( void ) = 0;

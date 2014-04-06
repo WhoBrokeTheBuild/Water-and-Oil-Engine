@@ -3,6 +3,8 @@
 
 #include "BaseGraphicsSystem.h"
 
+class GameTime;
+
 class DXGraphicsSystem :
 	public BaseGraphicsSystem
 {
@@ -13,6 +15,8 @@ public:
 	virtual ~DXGraphicsSystem( void );
 
 	virtual inline string getClassName( void ) const { return "DX Graphics System"; }
+
+	virtual void update( const GameTime* pGameTime );
 
 	virtual void beginRender( void );
 	virtual void endRender( void );

@@ -1,5 +1,7 @@
 #include "GLGraphicsSystem.h"
 
+#include "GameTime.h"
+
 GLGraphicsSystem::GLGraphicsSystem( int width, int height, string title, bool fullscreen /* = false */ )
 	: BaseGraphicsSystem(width, height, title, fullscreen)
 {
@@ -49,12 +51,20 @@ GLGraphicsSystem::~GLGraphicsSystem(void)
 {
 }
 
+void GLGraphicsSystem::update( const GameTime* pGameTime )
+{
+	glfwPollEvents();
+}
+
 void GLGraphicsSystem::beginRender( void )
 {
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+	glClearDepth(1.0f);
 }
 
 void GLGraphicsSystem::endRender( void )
 {
+	glfwSwapBuffers(mp_GLFWWindow);
 }
 
 void GLGraphicsSystem::doResizeWindow( void )

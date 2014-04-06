@@ -38,6 +38,8 @@ public:
 
 	virtual inline string getClassName( void ) const { return "GL Graphics System"; }
 
+	virtual void update( const GameTime* pGameTime );
+
 	virtual void beginRender( void );
 	virtual void endRender( void );
 

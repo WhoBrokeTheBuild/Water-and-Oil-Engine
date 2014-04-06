@@ -1,7 +1,9 @@
 
 #include <Arc/MemoryTracker.h>
 
+#include "Defines.h"
 #include "Game.h"
+#include "Tests.h"
 
 using Arc::MemoryTracker;
 
@@ -11,7 +13,19 @@ int main( int argc, char* argv[] )
 
 	Arc::Arc_InitMemoryTracker();
 
-#endif 
+#endif
+
+	Log::AddInfoOutput("stdout");
+	Log::AddErrorOutput("stderr");
+
+	Log::AddInfoOutput("info.log", false);
+	Log::AddErrorOutput("error.log", false);
+
+#if defined(WOE_UNIT_TESTS)
+
+	WOE_RunTests();
+
+#endif
 
 	Game::Instance()->start();
 
