@@ -12,12 +12,8 @@ class Game :
 {
 public:
 
-	static const EventType		EVENT_UPDATE_START,
-								EVENT_UPDATE,
-								EVENT_UPDATE_END,
-								EVENT_RENDER_START,
+	static const EventType		EVENT_UPDATE,
 								EVENT_RENDER,
-								EVENT_RENDER_END,
 								EVENT_EXIT;
 
 	static Game* Instance( void );
@@ -25,6 +21,10 @@ public:
 	static void Destroy( void );
 
 	virtual inline string getClassName( void ) const { return "Game"; }
+
+	inline GraphicsSystem* getGraphicsSystem( void ) { return mp_GraphicsSystem; }
+
+	inline GameTime* getGameTime( void ) { return mp_GameTime; }
 
 	void start( void );
 

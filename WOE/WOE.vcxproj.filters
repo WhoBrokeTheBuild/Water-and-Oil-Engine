@@ -69,6 +69,12 @@
     <ClCompile Include="Timer.cpp">
       <Filter>Project\Timing</Filter>
     </ClCompile>
+    <ClCompile Include="Color.cpp">
+      <Filter>Project\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseGraphicsSystem.cpp">
+      <Filter>Project\Graphics\GraphicsSystem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -130,6 +136,9 @@
     </ClInclude>
     <ClInclude Include="Timer.h">
       <Filter>Project\Timing</Filter>
+    </ClInclude>
+    <ClInclude Include="Color.h">
+      <Filter>Project\Graphics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

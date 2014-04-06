@@ -5,13 +5,9 @@
 
 Game* Game::s_Instance = nullptr;
 
-const EventType Game::EVENT_UPDATE_START	= "game.updateStart";
-const EventType Game::EVENT_UPDATE			= "game.update";
-const EventType Game::EVENT_UPDATE_END		= "game.updateEnd";
-const EventType Game::EVENT_RENDER_START	= "game.renderStart";
-const EventType Game::EVENT_RENDER			= "game.render";
-const EventType Game::EVENT_RENDER_END		= "game.renderEnd";
-const EventType Game::EVENT_EXIT			= "game.exit";
+const EventType Game::EVENT_UPDATE = "game.update";
+const EventType Game::EVENT_RENDER = "game.render";
+const EventType Game::EVENT_EXIT   = "game.exit";
 
 Game* Game::Instance( void )
 {
@@ -30,6 +26,10 @@ void Game::Destroy( void )
 Game::Game( void )
 {
 	mp_GraphicsSystem = New GraphicsSystem(640, 480, "Testing");
+	mp_GraphicsSystem->setClearColor(Color("888888"));
+
+	addEventListener(EVENT_EXIT, this, &Game::evtExit);
+	mp_GraphicsSystem->addEventListener(EVENT_EXIT, this, &Game::evtExit);
 }
 
 Game::~Game( void )
@@ -39,30 +39,6 @@ Game::~Game( void )
 
 void Game::start( void )
 {
-	//while( ! glfwWindowShouldClose(mp_Window) )
-	//{
-	//	const float updateInt = 1.0f / 60.0f;
-	//	static float updateTimer = 0.0f;
-	//
-	//	double currTime = glfwGetTime();
-	//	float deltaTime = (float)(currTime - m_LastFrameTime);
-	//	m_LastFrameTime = currTime;
-	//
-	//	updateTimer += deltaTime;
-	//
-	//	if (updateTimer >= updateInt)
-	//	{
-	//		updateTimer = 0.0f;
-	//		deltaTime = updateInt; // Actual time since last update/render
-	//
-	//		update(deltaTime);
-	//		render();
-	//		glfwSwapBuffers(mp_Window);
-	//	}
-	//
-	//	glfwPollEvents();
-	//}
-
 	mp_GameTime = New GameTime();
 
 	Timer fpsTimer;
@@ -89,7 +65,7 @@ void Game::start( void )
 
 void Game::update(void)
 {
-
+	mp_GraphicsSystem->update(mp_GameTime);
 }
 
 void Game::render(void)

@@ -10,7 +10,7 @@ class DXGraphicsSystem :
 {
 public:
 
-	DXGraphicsSystem( int width, int height, string title, bool fullscreen = false );
+	DXGraphicsSystem( const int& width, const int& height, const string& title, const bool& fullscreen = false );
 
 	virtual ~DXGraphicsSystem( void );
 
@@ -23,7 +23,11 @@ public:
 
 protected:
 
-	virtual void doResizeWindow( void );
+	virtual void doResizeWindow(const int& width, const int& height);
+
+	virtual void doChangeFullscreen(const bool& fullscreen);
+
+	virtual void doChangeWindowTitle(const string& title);
 
 };
 

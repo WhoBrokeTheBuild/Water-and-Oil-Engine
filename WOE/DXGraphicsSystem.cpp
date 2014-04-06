@@ -2,7 +2,7 @@
 
 #include "GameTime.h"
 
-DXGraphicsSystem::DXGraphicsSystem( int width, int height, string title, bool fullscreen /* = false */ )
+DXGraphicsSystem::DXGraphicsSystem( const int& width, const int& height, const string& title, const bool& fullscreen /* = false */ )
 	: BaseGraphicsSystem(width, height, title, fullscreen)
 {
 
@@ -20,11 +20,19 @@ void DXGraphicsSystem::endRender( void )
 {
 }
 
-void DXGraphicsSystem::doResizeWindow( void )
-{
-}
-
 void DXGraphicsSystem::update(const GameTime* pGameTime)
 {
 
+}
+
+void DXGraphicsSystem::doResizeWindow(const int& width, const int& height)
+{
+}
+
+void DXGraphicsSystem::doChangeFullscreen(const bool& fullscreen)
+{
+}
+
+void DXGraphicsSystem::doChangeWindowTitle(const string& title)
+{
 }

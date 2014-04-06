@@ -1,8 +1,11 @@
 #include "GLGraphicsSystem.h"
 
-#include "GameTime.h"
+#if defined(_WOE_OPENGL)
 
-GLGraphicsSystem::GLGraphicsSystem( int width, int height, string title, bool fullscreen /* = false */ )
+#include "GameTime.h"
+#include "Game.h"
+
+GLGraphicsSystem::GLGraphicsSystem( const int& width, const int& height, const string& title, const bool& fullscreen /* = false */ )
 	: BaseGraphicsSystem(width, height, title, fullscreen)
 {
 	if ( ! glfwInit())
@@ -51,9 +54,21 @@ GLGraphicsSystem::~GLGraphicsSystem(void)
 {
 }
 
+void GLGraphicsSystem::setClearColor( const Color& clearColor )
+{
+	BaseGraphicsSystem::setClearColor(clearColor);
+
+	glClearColor(clearColor.getFloatR(), clearColor.getFloatG(), clearColor.getFloatB(), clearColor.getFloatA());
+}
+
 void GLGraphicsSystem::update( const GameTime* pGameTime )
 {
 	glfwPollEvents();
+
+	if (glfwWindowShouldClose(mp_GLFWWindow))
+	{
+		dispatchEvent(Event(Game::EVENT_EXIT));
+	}
 }
 
 void GLGraphicsSystem::beginRender( void )
@@ -67,8 +82,26 @@ void GLGraphicsSystem::endRender( void )
 	glfwSwapBuffers(mp_GLFWWindow);
 }
 
-void GLGraphicsSystem::doResizeWindow( void )
+void GLGraphicsSystem::doResizeWindow( const int& width, const int& height )
 {
+	glfwSetWindowSize(mp_GLFWWindow, width, height);
+}
+
+void GLGraphicsSystem::doChangeFullscreen( const bool& fullscreen )
+{
+	// UNDONE
+}
+
+void GLGraphicsSystem::doChangeWindowTitle( const string& title )
+{
+	glfwSetWindowTitle(mp_GLFWWindow, title.c_str());
+}
+
+void GLGraphicsSystem::hookWindowResized(int width, int height)
+{
+	m_Width = width;
+	m_Height = height;
+	dispatchEvent(Event(EVENT_WINDOW_RESIZED));
 }
 
 void glfwError( int error, const char* description )
@@ -78,7 +111,7 @@ void glfwError( int error, const char* description )
 
 void glfwResize( GLFWwindow* window, int width, int height )
 {
-
+	Game::Instance()->getGraphicsSystem()->hookWindowResized(width, height);
 }
 
 void glfwKey( GLFWwindow* window, int key, int scancode, int action, int mods )
@@ -104,3 +137,5 @@ void glfwMouseScroll( GLFWwindow* window, double x, double y )
 {
 
 }
+
+#endif // _WOE_OPENGL

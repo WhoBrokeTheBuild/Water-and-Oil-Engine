@@ -67,6 +67,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BaseGraphicsSystem.cpp" />
+    <ClCompile Include="Color.cpp" />
     <ClCompile Include="DXGraphicsSystem.cpp" />
     <ClCompile Include="DXRenderTarget.cpp" />
     <ClCompile Include="Event.cpp" />
@@ -83,6 +85,7 @@
     <ClInclude Include="BaseGraphicsSystem.h" />
     <ClInclude Include="BaseRenderTarget.h" />
     <ClInclude Include="Callbacks.h" />
+    <ClInclude Include="Color.h" />
     <ClInclude Include="Defines.h" />
     <ClInclude Include="Delegate.h" />
     <ClInclude Include="DXGraphicsSystem.h" />
