@@ -75,6 +75,9 @@
     <ClCompile Include="BaseGraphicsSystem.cpp">
       <Filter>Project\Graphics\GraphicsSystem</Filter>
     </ClCompile>
+    <ClCompile Include="Console.cpp">
+      <Filter>Project\Utility</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -139,6 +142,9 @@
     </ClInclude>
     <ClInclude Include="Color.h">
       <Filter>Project\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Console.h">
+      <Filter>Project\Utility</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

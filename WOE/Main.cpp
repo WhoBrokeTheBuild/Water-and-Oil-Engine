@@ -1,10 +1,6 @@
 
 #include <Arc/MemoryTracker.h>
 
-#include "Defines.h"
-#include "Game.h"
-#include "Tests.h"
-
 #if defined(_WOE_DIRECTX)
 
 #define NOGDI
@@ -14,12 +10,19 @@
 
 #endif
 
+#include "Defines.h"
+#include "Game.h"
+#include "Tests.h"
+#include "Console.h"
+
 using Arc::MemoryTracker;
 
 #if defined(_WOE_DIRECTX)
 
 int WINAPI wWinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int nCmdShow )
 {
+
+	initConsole();
 
 #elif defined(_WOE_OPENGL)
 
