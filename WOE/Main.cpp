@@ -5,10 +5,29 @@
 #include "Game.h"
 #include "Tests.h"
 
+#if defined(_WOE_DIRECTX)
+
+#define NOGDI
+
+#define WIN32_LEAN_AND_MEAN
+#include <Windows.h>
+
+#endif
+
 using Arc::MemoryTracker;
+
+#if defined(_WOE_DIRECTX)
+
+int WINAPI wWinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int nCmdShow )
+{
+
+#elif defined(_WOE_OPENGL)
 
 int main( int argc, char* argv[] )
 {
+
+#endif
+
 #if defined(_WOE_DEBUG)
 
 	Arc::Arc_InitMemoryTracker();

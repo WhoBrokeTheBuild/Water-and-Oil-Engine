@@ -6,8 +6,8 @@
 #include <string>
 
 #include "Color.h"
+#include "RenderTarget.h"
 
-class RenderTarget;
 class GameTime;
 
 using std::string;

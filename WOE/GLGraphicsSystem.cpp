@@ -4,6 +4,7 @@
 
 #include "GameTime.h"
 #include "Game.h"
+#include "GLRenderTarget.h"
 
 GLGraphicsSystem::GLGraphicsSystem( const int& width, const int& height, const string& title, const bool& fullscreen /* = false */ )
 	: BaseGraphicsSystem(width, height, title, fullscreen)
@@ -48,10 +49,13 @@ GLGraphicsSystem::GLGraphicsSystem( const int& width, const int& height, const s
 	glfwSetMouseButtonCallback(mp_GLFWWindow, glfwMouse);
 	glfwSetCursorPosCallback(mp_GLFWWindow, glfwMouseMove);
 	glfwSetScrollCallback(mp_GLFWWindow, glfwMouseScroll);
+
+	mp_RenderTarget = New GLRenderTarget();
 }
 
 GLGraphicsSystem::~GLGraphicsSystem(void)
 {
+	delete mp_RenderTarget;
 }
 
 void GLGraphicsSystem::setClearColor( const Color& clearColor )

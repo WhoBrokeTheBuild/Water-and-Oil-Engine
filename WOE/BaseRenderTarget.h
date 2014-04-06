@@ -12,9 +12,6 @@ public:
 
 protected:
 
-	BaseRenderTarget( void );
-	BaseRenderTarget( const BaseRenderTarget& rhs );
-
 
 };
 

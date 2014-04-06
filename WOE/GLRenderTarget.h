@@ -8,6 +8,8 @@ class GLRenderTarget :
 {
 public:
 
+	inline GLRenderTarget( void ) { }
+
 	virtual inline string getClassName( void ) const { return "GL Render Target"; }
 
 };
