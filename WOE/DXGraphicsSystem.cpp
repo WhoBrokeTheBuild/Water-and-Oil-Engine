@@ -20,14 +20,17 @@ DXGraphicsSystem::DXGraphicsSystem( const int& width, const int& height, const s
 	wc.lpfnWndProc = DXWindowProc;
 	wc.hInstance = Game::GetArgs()->getInstance();
 	wc.hCursor = LoadCursor(NULL, IDC_ARROW);
-	wc.hbrBackground = (HBRUSH)COLOR_WINDOW;
 	wc.lpszClassName = "WindowClass";
+
+	if ( ! isFullscreen())
+		wc.hbrBackground = (HBRUSH)COLOR_WINDOW;
 
 	RegisterClassEx(&wc);
 
 	RECT wr = {0, 0, width, height};
 	AdjustWindowRect(&wr, WS_OVERLAPPEDWINDOW, FALSE);
 
+	// Hack for fixing borders
 	wr.right -= wr.left;
 	wr.bottom -= wr.top;
 
@@ -55,7 +58,8 @@ DXGraphicsSystem::DXGraphicsSystem( const int& width, const int& height, const s
 	scd.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;      // how swap chain is to be used
 	scd.OutputWindow = m_Wnd;                                // the window to be used
 	scd.SampleDesc.Count = 4;                               // how many multisamples
-	scd.Windowed = TRUE;                                    // windowed/full-screen mode
+	scd.Windowed = ! isFullscreen();                                    // windowed/full-screen mode
+	scd.Flags = DXGI_SWAP_CHAIN_FLAG_ALLOW_MODE_SWITCH;
 
 	// create a device, device context and swap chain using the information in the scd struct
 	D3D11CreateDeviceAndSwapChain(NULL,
@@ -92,7 +96,10 @@ DXGraphicsSystem::DXGraphicsSystem( const int& width, const int& height, const s
 
 DXGraphicsSystem::~DXGraphicsSystem(void)
 {
+	mp_SwapChain->SetFullscreenState(FALSE, NULL);
+
 	mp_SwapChain->Release();
+	mp_BackBuffer->Release();
 	mp_Dev->Release();
 	mp_DevCtx->Release();
 }
