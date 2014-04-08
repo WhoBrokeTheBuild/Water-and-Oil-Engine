@@ -45,6 +45,8 @@ int main( int argc, char* argv[] )
 	Log::AddInfoOutput("info.log", false);
 	Log::AddErrorOutput("error.log", false);
 
+	Log::Info("Main", "Starting Up");
+
 #if defined(WOE_UNIT_TESTS)
 
 	WOE_RunTests();

@@ -5,6 +5,11 @@
 #include "GameTime.h"
 #include "Game.h"
 #include "GLRenderTarget.h"
+#include "GLInputSystem.h"
+
+#include <sstream>
+
+using std::stringstream;
 
 GLGraphicsSystem::GLGraphicsSystem( const int& width, const int& height, const string& title, const bool& fullscreen /* = false */ )
 	: BaseGraphicsSystem(width, height, title, fullscreen)
@@ -31,7 +36,10 @@ GLGraphicsSystem::GLGraphicsSystem( const int& width, const int& height, const s
 		}
 	}
 
-	mp_GLFWWindow = glfwCreateWindow(m_Width, m_Height, m_Title.c_str(), NULL, NULL);
+	stringstream ss;
+	ss << title.c_str() << " - OpenGL";
+
+	mp_GLFWWindow = glfwCreateWindow(m_Width, m_Height, ss.str().c_str(), NULL, NULL);
 
 	if ( ! mp_GLFWWindow )
 	{
@@ -45,10 +53,10 @@ GLGraphicsSystem::GLGraphicsSystem( const int& width, const int& height, const s
 	glfwSwapInterval(0);
 
 	glfwSetFramebufferSizeCallback(mp_GLFWWindow, glfwResize);
-	glfwSetKeyCallback(mp_GLFWWindow, glfwKey);
-	glfwSetMouseButtonCallback(mp_GLFWWindow, glfwMouse);
-	glfwSetCursorPosCallback(mp_GLFWWindow, glfwMouseMove);
-	glfwSetScrollCallback(mp_GLFWWindow, glfwMouseScroll);
+	//glfwSetKeyCallback(mp_GLFWWindow, glfwKey);
+	//glfwSetMouseButtonCallback(mp_GLFWWindow, glfwMouse);
+	//glfwSetCursorPosCallback(mp_GLFWWindow, glfwMouseMove);
+	//glfwSetScrollCallback(mp_GLFWWindow, glfwMouseScroll);
 
 	mp_RenderTarget = New GLRenderTarget();
 }

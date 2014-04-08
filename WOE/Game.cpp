@@ -38,7 +38,7 @@ Args* Game::GetArgs(void)
 Game::Game( void )
 {
 	mp_GraphicsSystem = New GraphicsSystem(640, 480, "Testing");
-	mp_GraphicsSystem->setClearColor(Color("00AA88"));
+	mp_GraphicsSystem->setClearColor(Color(0, 170, 170));
 
 	addEventListener(EVENT_EXIT, this, &Game::evtExit);
 	mp_GraphicsSystem->addEventListener(EVENT_EXIT, this, &Game::evtExit);

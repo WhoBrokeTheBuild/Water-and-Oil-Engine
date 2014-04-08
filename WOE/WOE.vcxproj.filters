@@ -34,6 +34,12 @@
     <Filter Include="Project\Events">
       <UniqueIdentifier>{285d9c59-bc63-4c0d-93be-74f64b59104f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Project\Input">
+      <UniqueIdentifier>{364a9e64-240a-460e-a2e2-fdfe8893dbf8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Input\InputSystem">
+      <UniqueIdentifier>{8628872c-1e06-4656-9bbf-c43b74b2570c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -77,6 +83,15 @@
     </ClCompile>
     <ClCompile Include="Console.cpp">
       <Filter>Project\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseInputSystem.cpp">
+      <Filter>Project\Input\InputSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="DXInputSystem.cpp">
+      <Filter>Project\Input\InputSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="GLInputSystem.cpp">
+      <Filter>Project\Input\InputSystem</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -148,6 +163,15 @@
     </ClInclude>
     <ClInclude Include="Args.h">
       <Filter>Project\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseInputSystem.h">
+      <Filter>Project\Input\InputSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="DXInputSystem.h">
+      <Filter>Project\Input\InputSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="GLInputSystem.h">
+      <Filter>Project\Input\InputSystem</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

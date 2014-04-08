@@ -21,21 +21,14 @@
 #include <GL/GLU.h>
 #include <GLFW/glfw3.h>
 
-void glfwError( int error, const char* description );
-
-void glfwResize( GLFWwindow* window, int width, int height );
-
-void glfwKey( GLFWwindow* window, int key, int scancode, int action, int mods );
-
-void glfwMouseMove( GLFWwindow* window, double x, double y );
-
-void glfwMouse( GLFWwindow* window, int button, int action, int mods );
-
-void glfwMouseScroll( GLFWwindow* window, double x, double y );
+class GLInputSystem;
 
 class GLGraphicsSystem :
 	public BaseGraphicsSystem
 {
+
+	friend class GLInputSystem;
+
 public:
 
 	GLGraphicsSystem( const int& width, const int& height, const string& title, const bool& fullscreen = false );
@@ -44,24 +37,18 @@ public:
 
 	virtual inline string getClassName( void ) const { return "GL Graphics System"; }
 
-#pragma region Properties
-
 	virtual void setClearColor( const Color& clearColor );
-
-#pragma endregion Properties
 
 	virtual void update( const GameTime* pGameTime );
 
 	virtual void beginRender( void );
 	virtual void endRender( void );
 
-#pragma region Hooks
-
 	virtual void hookWindowResized( int width, int height );
 
-#pragma endregion Hooks
-
 protected:
+
+	GLFWwindow*	getGLFWWindow( void ) { return mp_GLFWWindow; }
 
 	virtual void doResizeWindow( const int& width, const int& height );
 	virtual void doChangeFullscreen( const bool& fullscreen );
@@ -70,6 +57,10 @@ protected:
 	GLFWwindow*			mp_GLFWWindow;
 
 };
+
+void glfwError( int error, const char* description );
+
+void glfwResize( GLFWwindow* window, int width, int height );
 
 #endif // _WOE_OPENGL
 

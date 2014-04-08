@@ -5,6 +5,10 @@
 #include "GameTime.h"
 #include "Game.h"
 
+#include <sstream>
+
+using std::stringstream;
+
 DXGraphicsSystem::DXGraphicsSystem( const int& width, const int& height, const string& title, const bool& fullscreen /* = false */ )
 	: BaseGraphicsSystem(width, height, title, fullscreen)
 {
@@ -24,12 +28,18 @@ DXGraphicsSystem::DXGraphicsSystem( const int& width, const int& height, const s
 	RECT wr = {0, 0, width, height};
 	AdjustWindowRect(&wr, WS_OVERLAPPEDWINDOW, FALSE);
 
+	wr.right -= wr.left;
+	wr.bottom -= wr.top;
+
+	stringstream ss;
+	ss << title.c_str() << " - DirectX";
+
 	m_Wnd = CreateWindowEx(NULL,
 						   "WindowClass",
-						   title.c_str(),			// Window Title
+						   ss.str().c_str(),			// Window Title
 						   WS_OVERLAPPEDWINDOW,		// Window Style
 						   0, 0,					// Position
-						   width, height,			// Size
+						   wr.right, wr.bottom,			// Size
 						   NULL,
 						   NULL, 
 						   Game::GetArgs()->getInstance(),
@@ -74,8 +84,8 @@ DXGraphicsSystem::DXGraphicsSystem( const int& width, const int& height, const s
 
 	viewport.TopLeftX = 0;
 	viewport.TopLeftY = 0;
-	viewport.Width = width;
-	viewport.Height = height;
+	viewport.Width  = (float)width;
+	viewport.Height = (float)height;
 
 	mp_DevCtx->RSSetViewports(1, &viewport);
 }
@@ -89,7 +99,8 @@ DXGraphicsSystem::~DXGraphicsSystem(void)
 
 void DXGraphicsSystem::beginRender( void )
 {
-	mp_DevCtx->ClearRenderTargetView(mp_BackBuffer, m_ClearColor.getFloatArray());
+	float clearColor[4] = { m_ClearColor.getFloatR(), m_ClearColor.getFloatG(), m_ClearColor.getFloatB(), m_ClearColor.getFloatA() };
+	mp_DevCtx->ClearRenderTargetView(mp_BackBuffer, clearColor);
 }
 
 void DXGraphicsSystem::endRender( void )

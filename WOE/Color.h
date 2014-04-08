@@ -28,7 +28,7 @@ public:
 		  m_A(a)
 	{ }
 
-	inline Color( const int& r, const int& g, const int& b, const int& a )
+	inline Color( const int& r, const int& g, const int& b, const int& a = 255 )
 		: m_R((float)r / 255.0f),
 		  m_G((float)g / 255.0f),
 		  m_B((float)b / 255.0f),
@@ -94,12 +94,6 @@ public:
 
 	inline int getIntA( void ) const { return (int)(m_A * 255.0f); }
 	inline void setIntA( float a ) { m_A = Arc::Arc_Clamp((float)a / 255.0f, 0.0f, 1.0f); }
-
-	inline const float* getFloatArray( void ) const 
-	{
-		float pTmp[4] = { m_R, m_G, m_B, m_A };
-		return pTmp;
-	}
 
 protected:
 
