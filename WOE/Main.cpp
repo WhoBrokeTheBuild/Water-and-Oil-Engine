@@ -21,6 +21,7 @@ using Arc::MemoryTracker;
 
 int WINAPI wWinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int nCmdShow )
 {
+	Args args(hInstance, hPrevInstance, lpCmdLine, nCmdShow);
 
 	initConsole();
 
@@ -28,6 +29,7 @@ int WINAPI wWinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdL
 
 int main( int argc, char* argv[] )
 {
+	Args args(argc, argv);
 
 #endif
 
@@ -48,6 +50,8 @@ int main( int argc, char* argv[] )
 	WOE_RunTests();
 
 #endif
+
+	Game::Create(&args);
 
 	Game::Instance()->start();
 

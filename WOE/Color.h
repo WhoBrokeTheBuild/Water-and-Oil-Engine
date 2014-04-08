@@ -9,7 +9,7 @@
 
 using Arc::ManagedObject;
 
-class Color :
+struct Color :
 	public ManagedObject
 {
 public:
@@ -94,6 +94,12 @@ public:
 
 	inline int getIntA( void ) const { return (int)(m_A * 255.0f); }
 	inline void setIntA( float a ) { m_A = Arc::Arc_Clamp((float)a / 255.0f, 0.0f, 1.0f); }
+
+	inline const float* getFloatArray( void ) const 
+	{
+		float pTmp[4] = { m_R, m_G, m_B, m_A };
+		return pTmp;
+	}
 
 protected:
 

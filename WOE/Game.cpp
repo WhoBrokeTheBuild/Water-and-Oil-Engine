@@ -3,30 +3,42 @@
 #include "GameTime.h"
 #include "Timer.h"
 
-Game* Game::s_Instance = nullptr;
+Game* Game::sp_Instance = nullptr;
+Args* Game::sp_Args     = nullptr;
 
 const EventType Game::EVENT_UPDATE = "game.update";
 const EventType Game::EVENT_RENDER = "game.render";
 const EventType Game::EVENT_EXIT   = "game.exit";
 
+void Game::Create( Args* pArgs )
+{
+	delete sp_Instance;
+	sp_Instance = nullptr;
+
+	Game::sp_Args = pArgs;
+	sp_Instance = New Game();
+}
+
 Game* Game::Instance( void )
 {
-	if ( ! s_Instance)
-		s_Instance = New Game();
-
-	return s_Instance;
+	return sp_Instance;
 }
 
 void Game::Destroy( void )
 {
-	delete s_Instance;
-	s_Instance = nullptr;
+	delete sp_Instance;
+	sp_Instance = nullptr;
+}
+
+Args* Game::GetArgs(void)
+{
+	return sp_Args;
 }
 
 Game::Game( void )
 {
 	mp_GraphicsSystem = New GraphicsSystem(640, 480, "Testing");
-	mp_GraphicsSystem->setClearColor(Color("888888"));
+	mp_GraphicsSystem->setClearColor(Color("00AA88"));
 
 	addEventListener(EVENT_EXIT, this, &Game::evtExit);
 	mp_GraphicsSystem->addEventListener(EVENT_EXIT, this, &Game::evtExit);

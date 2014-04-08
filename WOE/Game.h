@@ -4,6 +4,7 @@
 #include "EventDispatcher.h"
 
 #include "GraphicsSystem.h"
+#include "Args.h"
 
 class GameTime;
 
@@ -16,9 +17,13 @@ public:
 								EVENT_RENDER,
 								EVENT_EXIT;
 
+	static void Create( Args* pArgs );
+
 	static Game* Instance( void );
 
 	static void Destroy( void );
+
+	static Args* GetArgs( void );
 
 	virtual inline string getClassName( void ) const { return "Game"; }
 
@@ -45,7 +50,9 @@ private:
 	Game( void );
 	virtual ~Game( void );
 
-	static Game*		s_Instance;
+	static Game*		sp_Instance;
+
+	static Args*		sp_Args;
 
 	GraphicsSystem*		mp_GraphicsSystem;
 	

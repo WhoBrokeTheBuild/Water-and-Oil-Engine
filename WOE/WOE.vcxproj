@@ -58,12 +58,12 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_WOE_DIRECTX;_WOE_DEBUG;_DEBUG;DEBUG;_WOE_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../Libraries/Arc/include/</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../Libraries/Arc/include/;$(DXSDK_DIR)Include </AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>../Libraries/Arc/lib/</AdditionalLibraryDirectories>
-      <AdditionalDependencies>ArcCore.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../Libraries/Arc/lib/;$(DXSDK_DIR)Lib\x64</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ArcCore.lib;d3d11.lib;d3d10.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -86,6 +86,7 @@
     <ClInclude Include="BaseGraphicsSystem.h" />
     <ClInclude Include="BaseRenderTarget.h" />
     <ClInclude Include="Callbacks.h" />
+    <ClInclude Include="Args.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="Console.h" />
     <ClInclude Include="Defines.h" />

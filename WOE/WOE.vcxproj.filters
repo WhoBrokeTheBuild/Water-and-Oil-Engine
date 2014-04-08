@@ -146,6 +146,9 @@
     <ClInclude Include="Console.h">
       <Filter>Project\Utility</Filter>
     </ClInclude>
+    <ClInclude Include="Args.h">
+      <Filter>Project\Utility</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="error.log">
