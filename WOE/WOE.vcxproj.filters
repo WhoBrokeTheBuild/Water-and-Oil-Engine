@@ -43,6 +43,15 @@
     <Filter Include="Project\Graphics\Texture">
       <UniqueIdentifier>{6f53e479-b4bf-48d2-b3c8-1e77fdf32447}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Project\Shaders">
+      <UniqueIdentifier>{178f02d3-4e5f-425e-a933-b1508f41da65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Shaders\HLSL">
+      <UniqueIdentifier>{6baf7ad2-3f31-4467-9dcc-2c1b8fb743d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Shaders\GLSL">
+      <UniqueIdentifier>{aa6eb406-4e11-4f52-a24a-7fcf79b73b8e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
