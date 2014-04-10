@@ -74,6 +74,7 @@
     <ClCompile Include="DXGraphicsSystem.cpp" />
     <ClCompile Include="DXInputSystem.cpp" />
     <ClCompile Include="DXRenderTarget.cpp" />
+    <ClCompile Include="DXTexture.cpp" />
     <ClCompile Include="Event.cpp" />
     <ClCompile Include="EventDispatcher.cpp" />
     <ClCompile Include="Game.cpp" />
@@ -81,6 +82,7 @@
     <ClCompile Include="GLGraphicsSystem.cpp" />
     <ClCompile Include="GLInputSystem.cpp" />
     <ClCompile Include="GLRenderTarget.cpp" />
+    <ClCompile Include="GLTexture.cpp" />
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Timer.cpp" />
@@ -89,6 +91,7 @@
     <ClInclude Include="BaseGraphicsSystem.h" />
     <ClInclude Include="BaseInputSystem.h" />
     <ClInclude Include="BaseRenderTarget.h" />
+    <ClInclude Include="BaseTexture.h" />
     <ClInclude Include="Callbacks.h" />
     <ClInclude Include="Args.h" />
     <ClInclude Include="Color.h" />
@@ -96,8 +99,10 @@
     <ClInclude Include="Defines.h" />
     <ClInclude Include="Delegate.h" />
     <ClInclude Include="DXGraphicsSystem.h" />
+    <ClInclude Include="DXHeader.h" />
     <ClInclude Include="DXInputSystem.h" />
     <ClInclude Include="DXRenderTarget.h" />
+    <ClInclude Include="DXTexture.h" />
     <ClInclude Include="Event.h" />
     <ClInclude Include="EventData.h" />
     <ClInclude Include="EventDispatcher.h" />
@@ -105,12 +110,15 @@
     <ClInclude Include="GameTime.h" />
     <ClInclude Include="GameTimeTests.h" />
     <ClInclude Include="GLGraphicsSystem.h" />
+    <ClInclude Include="GLHeader.h" />
     <ClInclude Include="GLInputSystem.h" />
     <ClInclude Include="GLRenderTarget.h" />
+    <ClInclude Include="GLTexture.h" />
     <ClInclude Include="GraphicsSystem.h" />
     <ClInclude Include="Log.h" />
     <ClInclude Include="RenderTarget.h" />
     <ClInclude Include="Tests.h" />
+    <ClInclude Include="Texture.h" />
     <ClInclude Include="Timer.h" />
   </ItemGroup>
   <ItemGroup>

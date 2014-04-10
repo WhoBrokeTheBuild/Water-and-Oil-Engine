@@ -3,6 +3,8 @@
 
 #include "BaseRenderTarget.h"
 
+#if defined(_WOE_OPENGL)
+
 class GLRenderTarget :
 	public BaseRenderTarget
 {
@@ -13,5 +15,7 @@ public:
 	virtual inline string getClassName( void ) const { return "GL Render Target"; }
 
 };
+
+#endif // _WOE_OPENGL
 
 #endif // WOE_GL_RENDER_TARGET_H

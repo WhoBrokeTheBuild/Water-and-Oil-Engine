@@ -2,6 +2,7 @@
 
 #if defined(_WOE_OPENGL)
 
+#include "Log.h"
 #include "GameTime.h"
 #include "Game.h"
 #include "GLRenderTarget.h"

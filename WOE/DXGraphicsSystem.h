@@ -1,17 +1,11 @@
 #ifndef WOE_DX_GRAPHICS_SYSTEM_H
 #define WOE_DX_GRAPHICS_SYSTEM_H
 
+#if defined(_WOE_DIRECTX)
+
 #include "BaseGraphicsSystem.h"
 
-#define NOGDI
-#define WIN32_LEAN_AND_MEAN
-
-#include <Windows.h>
-#include <windowsx.h>
-#include <d3d11.h>
-#include <d3d11.h>
-//#include <d3dx11.h>
-//#include <d3dx10.h>
+#include "DXHeader.h"
 
 class GameTime;
 
@@ -52,5 +46,7 @@ protected:
 	ID3D11RenderTargetView*			mp_BackBuffer;
 
 };
+
+#endif // _WOE_DIRECTX
 
 #endif // WOE_DX_GRAPHICS_SYSTEM_H

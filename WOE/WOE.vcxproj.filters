@@ -40,6 +40,9 @@
     <Filter Include="Project\Input\InputSystem">
       <UniqueIdentifier>{8628872c-1e06-4656-9bbf-c43b74b2570c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Project\Graphics\Texture">
+      <UniqueIdentifier>{6f53e479-b4bf-48d2-b3c8-1e77fdf32447}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -92,6 +95,12 @@
     </ClCompile>
     <ClCompile Include="GLInputSystem.cpp">
       <Filter>Project\Input\InputSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="DXTexture.cpp">
+      <Filter>Project\Graphics\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="GLTexture.cpp">
+      <Filter>Project\Graphics\Texture</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -172,6 +181,24 @@
     </ClInclude>
     <ClInclude Include="GLInputSystem.h">
       <Filter>Project\Input\InputSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseTexture.h">
+      <Filter>Project\Graphics\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="DXTexture.h">
+      <Filter>Project\Graphics\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="GLTexture.h">
+      <Filter>Project\Graphics\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Project\Graphics\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="GLHeader.h">
+      <Filter>Project\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="DXHeader.h">
+      <Filter>Project\Utility</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -1,24 +1,11 @@
 #ifndef WOE_GL_GRAPHICS_SYSTEM_H
 #define WOE_GL_GRAPHICS_SYSTEM_H
 
-#if defined(_WOE_WINDOWS)
-
-#	define NOGDI
-
-#	define WIN32_LEAN_AND_MEAN
-#	include <Windows.h>
-
-#endif // _WOE_WINDOWS
-
 #if defined(_WOE_OPENGL)
 
 #include "BaseGraphicsSystem.h"
 
-#include "Log.h"
-
-#include <GL/glew.h>
-#include <GL/GL.h>
-#include <GL/GLU.h>
+#include "GLHeader.h"
 #include <GLFW/glfw3.h>
 
 class GLInputSystem;
