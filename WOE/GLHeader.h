@@ -12,6 +12,10 @@
 
 #include <GLFW/glfw3.h>
 
+#define GLM_FORCE_RADIANS
+#include <glm/glm.hpp>
+#include <glm/ext.hpp>
+
 #define INVALID_GL_TEXTURE_ID
 
 #endif // _WOE_OPENGL

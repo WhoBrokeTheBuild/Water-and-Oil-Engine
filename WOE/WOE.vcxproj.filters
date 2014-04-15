@@ -58,6 +58,21 @@
     <Filter Include="Project\Input\Util">
       <UniqueIdentifier>{cc7daa2b-f5f6-47cb-9d78-bbe0e5ddd01e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Project\Scene">
+      <UniqueIdentifier>{09c184ed-d9e8-4e65-a2ee-78a07959481c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Scene\Camera">
+      <UniqueIdentifier>{7bc588dc-d9bf-4ca8-afda-6359823b9bd8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Math">
+      <UniqueIdentifier>{be92c0f9-f808-4c49-887c-60f8d3780c62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Math\Vector">
+      <UniqueIdentifier>{7af18082-6450-4e21-ba09-f60acd163e2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Math\Matrix">
+      <UniqueIdentifier>{e10e88b5-35b2-4e95-bbe9-5828230e158c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -122,6 +137,18 @@
     </ClCompile>
     <ClCompile Include="DXInputFunc.cpp">
       <Filter>Project\Input\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="GLCamera.cpp">
+      <Filter>Project\Scene\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseCamera.cpp">
+      <Filter>Project\Scene\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="DXCamera.cpp">
+      <Filter>Project\Scene\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="MathHelper.cpp">
+      <Filter>Project\Math</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -244,6 +271,39 @@
     </ClInclude>
     <ClInclude Include="InputInfo.h">
       <Filter>Project\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="GLCamera.h">
+      <Filter>Project\Scene\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseCamera.h">
+      <Filter>Project\Scene\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="DXCamera.h">
+      <Filter>Project\Scene\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Project\Scene\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="MathHelper.h">
+      <Filter>Project\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix.h">
+      <Filter>Project\Math\Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector.h">
+      <Filter>Project\Math\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="GLVector.h">
+      <Filter>Project\Math\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="DXVector.h">
+      <Filter>Project\Math\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="GLMatrix.h">
+      <Filter>Project\Math\Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="DXMatrix.h">
+      <Filter>Project\Math\Matrix</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

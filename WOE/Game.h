@@ -7,6 +7,9 @@
 #include "InputSystem.h"
 #include "Args.h"
 
+#include "Vector.h"
+#include "Matrix.h"
+
 class GameTime;
 
 class Game :

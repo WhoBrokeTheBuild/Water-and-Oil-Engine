@@ -4,6 +4,9 @@
 #include "Timer.h"
 #include "Log.h"
 
+#include <iostream>
+#include <fstream>
+
 Game* Game::sp_Instance = nullptr;
 Args* Game::sp_Args     = nullptr;
 
@@ -43,11 +46,47 @@ Game::Game( void )
 	sp_Instance = this;
 
 	mp_GraphicsSystem = New GraphicsSystem(800, 600, "Testing", false);
-	mp_GraphicsSystem->setClearColor(Color(0, 170, 170));
+	mp_GraphicsSystem->setClearColor(Color("00AAAA"));
 
 	mp_InputSystem = New InputSystem();
 
 	addEventListener(EVENT_EXIT, this, &Game::evtExit);
+
+	Vec2 v2_1;
+	Vec2 v2_2(1.0f, 2.0f);
+	Vec2 v2_3(v2_2);
+	Vec2 v2_4(3.0f);
+
+	v2_4.normalize();
+	v2_1.length();
+	v2_4.lengthSquared();
+
+	Vec3 v3_1;
+	Vec3 v3_2(1.0f, 2.0f, 3.0f);
+	Vec3 v3_3(v3_2);
+	Vec3 v3_4(3.0f);
+
+	v3_4.normalize();
+	v3_3.dot(v3_1);
+	v3_1.length();
+	v3_3.cross(v3_1);
+	v3_4.lengthSquared();
+
+	Vec4 v4_1;
+	Vec4 v4_2(1.0f, 2.0f, 3.0f, 4.0f);
+	Vec4 v4_3(v4_2);
+	Vec4 v4_4(3.0f);
+
+	v4_4.normalize();
+	v4_3.dot(v4_1);
+	v4_1.length();
+	v4_4.lengthSquared();
+
+	Mat3 m3_1;
+	Mat3 m3_2(m3_1);
+
+	Mat4 m4_1;
+	Mat4 m4_2(m4_1);
 
 	Log::Info(getClassName(), "Finished");
 }
