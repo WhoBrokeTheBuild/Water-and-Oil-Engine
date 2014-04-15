@@ -22,7 +22,7 @@ TestResult Test_WOE_GameTime_ElapsedMS( void )
 		total += step;
 	}
 
-	if (gameTime.getElapsedMS() != total)
+	if (gameTime.getTotalElapsedMS() != total)
 		return TestGroup::Failure("Invalid Result");
 
 	return TestGroup::Success();

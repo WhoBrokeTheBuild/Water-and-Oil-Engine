@@ -4,6 +4,7 @@
 
 #include "GameTime.h"
 #include "Game.h"
+#include "Log.h"
 
 #include <sstream>
 
@@ -12,6 +13,8 @@ using std::stringstream;
 DXGraphicsSystem::DXGraphicsSystem( const int& width, const int& height, const string& title, const bool& fullscreen /* = false */ )
 	: BaseGraphicsSystem(width, height, title, fullscreen)
 {
+	Log::Info(getClassName(), "Starting Up");
+
 	WNDCLASSEX wc;
 	ZeroMemory(&wc, sizeof(WNDCLASSEX));
 
@@ -92,16 +95,22 @@ DXGraphicsSystem::DXGraphicsSystem( const int& width, const int& height, const s
 	viewport.Height = (float)height;
 
 	mp_DevCtx->RSSetViewports(1, &viewport);
+
+	Log::Info(getClassName(), "Finished");
 }
 
 DXGraphicsSystem::~DXGraphicsSystem(void)
 {
+	Log::Info(getClassName(), "Shutting Down");
+
 	mp_SwapChain->SetFullscreenState(FALSE, NULL);
 
 	mp_SwapChain->Release();
 	mp_BackBuffer->Release();
 	mp_Dev->Release();
 	mp_DevCtx->Release();
+
+	Log::Info(getClassName(), "Finished");
 }
 
 void DXGraphicsSystem::beginRender( void )
@@ -115,7 +124,7 @@ void DXGraphicsSystem::endRender( void )
 	mp_SwapChain->Present(0, 0);
 }
 
-void DXGraphicsSystem::update(const GameTime* pGameTime)
+void DXGraphicsSystem::update( const GameTime* pGameTime )
 {
 	static MSG msg;
 
@@ -138,17 +147,23 @@ void DXGraphicsSystem::doChangeWindowTitle(const string& title)
 {
 }
 
-LRESULT CALLBACK DXWindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
+void DXGraphicsSystem::handleWindowsMessage( HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam )
 {
 	switch(message)
 	{
 	case WM_DESTROY:
-		
-			Game::Instance()->getGraphicsSystem()->dispatchEvent(Event(Game::EVENT_EXIT));
-			return 0;
+
+		Game::Instance()->dispatchEvent(Event(Game::EVENT_EXIT));
 
 		break;
 	}
+
+}
+
+LRESULT CALLBACK DXWindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
+{
+	Game::Instance()->getGraphicsSystem()->handleWindowsMessage(hWnd, message, wParam, lParam);
+	Game::Instance()->getInputSystem()->handleWindowsMessage(hWnd, message, wParam, lParam);
 
 	return DefWindowProc(hWnd, message, wParam, lParam);
 }

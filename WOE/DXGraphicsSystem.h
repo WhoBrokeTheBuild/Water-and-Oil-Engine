@@ -9,7 +9,7 @@
 
 class GameTime;
 
-LRESULT CALLBACK DXWindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
+LRESULT CALLBACK DXWindowProc( HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam );
 
 class DXGraphicsSystem :
 	public BaseGraphicsSystem
@@ -26,6 +26,8 @@ public:
 
 	virtual void beginRender( void );
 	virtual void endRender( void );
+
+	void handleWindowsMessage( HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam );
 
 protected:
 

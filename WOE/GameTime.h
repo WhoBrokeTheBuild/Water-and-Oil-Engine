@@ -14,7 +14,7 @@ public:
 		: m_TargetFPS(),
 		  m_CurrentFPS(),
 		  m_CurrentFPSPercent(), 
-		  m_ElapsedMS(), 
+		  m_TotalElapsedMS(), 
 		  m_DeltaMS(), 
 		  m_DeltaMod(),
 		  m_FrameDelayMS()
@@ -30,7 +30,7 @@ public:
 			return;
 
 		m_DeltaMS = deltaMS;
-		m_ElapsedMS += deltaMS;
+		m_TotalElapsedMS += deltaMS;
 
 		m_DeltaMod = m_FrameDelayMS / m_DeltaMS;
 
@@ -40,7 +40,7 @@ public:
 
 #pragma region Properties
 
-	inline double getElapsedMS( void ) const { return m_ElapsedMS; }
+	inline double getTotalElapsedMS( void ) const { return m_TotalElapsedMS; }
 	inline double getDeltaMS( void ) const { return m_DeltaMS; }
 	inline double getDeltaMod( void ) const { return m_DeltaMod; }
 
@@ -70,7 +70,7 @@ protected:
 	double		m_TargetFPS, 
 				m_CurrentFPS, 
 				m_CurrentFPSPercent, 
-				m_ElapsedMS, 
+				m_TotalElapsedMS, 
 				m_DeltaMS, 
 				m_DeltaMod, 
 				m_FrameDelayMS;

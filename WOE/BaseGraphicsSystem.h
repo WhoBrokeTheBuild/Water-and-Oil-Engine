@@ -64,7 +64,7 @@ public:
 	virtual inline void  setClearColor( const Color& clearColor ) { m_ClearColor = clearColor; }
 
 #pragma endregion Properties
-
+	
 	virtual inline void resizeWindow( const int& width, const int& height ) 
 	{
 		m_Width = width;

@@ -52,6 +52,12 @@
     <Filter Include="Project\Shaders\GLSL">
       <UniqueIdentifier>{aa6eb406-4e11-4f52-a24a-7fcf79b73b8e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Project\Input\Inputs">
+      <UniqueIdentifier>{f5a27ed8-febb-43e4-83ae-a698c3309cb3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Input\Util">
+      <UniqueIdentifier>{cc7daa2b-f5f6-47cb-9d78-bbe0e5ddd01e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -110,6 +116,12 @@
     </ClCompile>
     <ClCompile Include="GLTexture.cpp">
       <Filter>Project\Graphics\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="GLInputFunc.cpp">
+      <Filter>Project\Input\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="DXInputFunc.cpp">
+      <Filter>Project\Input\Util</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -208,6 +220,30 @@
     </ClInclude>
     <ClInclude Include="DXHeader.h">
       <Filter>Project\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="InputSystem.h">
+      <Filter>Project\Input\InputSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Key.h">
+      <Filter>Project\Input\Inputs</Filter>
+    </ClInclude>
+    <ClInclude Include="MouseButton.h">
+      <Filter>Project\Input\Inputs</Filter>
+    </ClInclude>
+    <ClInclude Include="ScrollWheelDir.h">
+      <Filter>Project\Input\Inputs</Filter>
+    </ClInclude>
+    <ClInclude Include="DXInputFunc.h">
+      <Filter>Project\Input\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="GLInputFunc.h">
+      <Filter>Project\Input\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="InputState.h">
+      <Filter>Project\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="InputInfo.h">
+      <Filter>Project\Input</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

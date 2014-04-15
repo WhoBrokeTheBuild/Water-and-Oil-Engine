@@ -4,6 +4,7 @@
 #include "EventDispatcher.h"
 
 #include "GraphicsSystem.h"
+#include "InputSystem.h"
 #include "Args.h"
 
 class GameTime;
@@ -28,6 +29,7 @@ public:
 	virtual inline string getClassName( void ) const { return "Game"; }
 
 	inline GraphicsSystem* getGraphicsSystem( void ) { return mp_GraphicsSystem; }
+	inline InputSystem* getInputSystem( void ) { return mp_InputSystem; }
 
 	inline GameTime* getGameTime( void ) { return mp_GameTime; }
 
@@ -55,6 +57,8 @@ private:
 	static Args*		sp_Args;
 
 	GraphicsSystem*		mp_GraphicsSystem;
+
+	InputSystem*		mp_InputSystem;
 	
 	bool				m_Running;
 	

@@ -15,6 +15,8 @@ using std::stringstream;
 GLGraphicsSystem::GLGraphicsSystem( const int& width, const int& height, const string& title, const bool& fullscreen /* = false */ )
 	: BaseGraphicsSystem(width, height, title, fullscreen)
 {
+	Log::Info(getClassName(), "Starting Up");
+
 	if ( ! glfwInit())
 	{
 		Log::Error("Main", "Failed to initialize GLFW");
@@ -54,17 +56,22 @@ GLGraphicsSystem::GLGraphicsSystem( const int& width, const int& height, const s
 	glfwSwapInterval(0);
 
 	glfwSetFramebufferSizeCallback(mp_GLFWWindow, glfwResize);
-	//glfwSetKeyCallback(mp_GLFWWindow, glfwKey);
-	//glfwSetMouseButtonCallback(mp_GLFWWindow, glfwMouse);
-	//glfwSetCursorPosCallback(mp_GLFWWindow, glfwMouseMove);
-	//glfwSetScrollCallback(mp_GLFWWindow, glfwMouseScroll);
 
 	mp_RenderTarget = New GLRenderTarget();
+
+	Log::Info(getClassName(), "Finished");
 }
 
 GLGraphicsSystem::~GLGraphicsSystem(void)
 {
+	Log::Info(getClassName(), "Shutting Down");
+
 	delete mp_RenderTarget;
+
+	glfwDestroyWindow(mp_GLFWWindow);
+	glfwTerminate();
+
+	Log::Info(getClassName(), "Finished");
 }
 
 void GLGraphicsSystem::setClearColor( const Color& clearColor )
@@ -76,12 +83,7 @@ void GLGraphicsSystem::setClearColor( const Color& clearColor )
 
 void GLGraphicsSystem::update( const GameTime* pGameTime )
 {
-	glfwPollEvents();
-
-	if (glfwWindowShouldClose(mp_GLFWWindow))
-	{
-		dispatchEvent(Event(Game::EVENT_EXIT));
-	}
+	processGLFWEvents();
 }
 
 void GLGraphicsSystem::beginRender( void )
@@ -117,6 +119,16 @@ void GLGraphicsSystem::hookWindowResized(int width, int height)
 	dispatchEvent(Event(EVENT_WINDOW_RESIZED));
 }
 
+void GLGraphicsSystem::processGLFWEvents( void )
+{
+	glfwPollEvents();
+
+	if (glfwWindowShouldClose(mp_GLFWWindow))
+	{
+		Game::Instance()->dispatchEvent(Event(Game::EVENT_EXIT));
+	}
+}
+
 void glfwError( int error, const char* description )
 {
 	Log::ErrorFmt("GLFW", "%s (code %d)", description, error);
@@ -125,30 +137,6 @@ void glfwError( int error, const char* description )
 void glfwResize( GLFWwindow* window, int width, int height )
 {
 	Game::Instance()->getGraphicsSystem()->hookWindowResized(width, height);
-}
-
-void glfwKey( GLFWwindow* window, int key, int scancode, int action, int mods )
-{
-	switch (action)
-	{
-	}
-}
-
-void glfwMouseMove( GLFWwindow* window, double x, double y )
-{
-
-}
-
-void glfwMouse( GLFWwindow* window, int button, int action, int mods )
-{
-	switch (action)
-	{
-	}
-}
-
-void glfwMouseScroll( GLFWwindow* window, double x, double y )
-{
-
 }
 
 #endif // _WOE_OPENGL

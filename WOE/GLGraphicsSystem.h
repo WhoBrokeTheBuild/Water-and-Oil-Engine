@@ -6,7 +6,6 @@
 #include "BaseGraphicsSystem.h"
 
 #include "GLHeader.h"
-#include <GLFW/glfw3.h>
 
 class GLInputSystem;
 
@@ -40,7 +39,7 @@ protected:
 	virtual void doResizeWindow( const int& width, const int& height );
 	virtual void doChangeFullscreen( const bool& fullscreen );
 	virtual void doChangeWindowTitle( const string& title );
-
+	void processGLFWEvents(void);
 	GLFWwindow*			mp_GLFWWindow;
 
 };

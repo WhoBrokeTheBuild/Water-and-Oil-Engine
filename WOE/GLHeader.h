@@ -10,6 +10,8 @@
 #include <GL/GL.h>
 #include <GL/GLU.h>
 
+#include <GLFW/glfw3.h>
+
 #define INVALID_GL_TEXTURE_ID
 
 #endif // _WOE_OPENGL

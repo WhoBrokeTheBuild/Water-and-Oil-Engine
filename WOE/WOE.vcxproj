@@ -72,6 +72,7 @@
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="Console.cpp" />
     <ClCompile Include="DXGraphicsSystem.cpp" />
+    <ClCompile Include="DXInputFunc.cpp" />
     <ClCompile Include="DXInputSystem.cpp" />
     <ClCompile Include="DXRenderTarget.cpp" />
     <ClCompile Include="DXTexture.cpp" />
@@ -81,6 +82,7 @@
     <ClCompile Include="GameTime.cpp" />
     <ClCompile Include="GLGraphicsSystem.cpp" />
     <ClCompile Include="GLInputSystem.cpp" />
+    <ClCompile Include="GLInputFunc.cpp" />
     <ClCompile Include="GLRenderTarget.cpp" />
     <ClCompile Include="GLTexture.cpp" />
     <ClCompile Include="Log.cpp" />
@@ -101,6 +103,7 @@
     <ClInclude Include="DXGraphicsSystem.h" />
     <ClInclude Include="DXHeader.h" />
     <ClInclude Include="DXInputSystem.h" />
+    <ClInclude Include="DXInputFunc.h" />
     <ClInclude Include="DXRenderTarget.h" />
     <ClInclude Include="DXTexture.h" />
     <ClInclude Include="Event.h" />
@@ -112,11 +115,18 @@
     <ClInclude Include="GLGraphicsSystem.h" />
     <ClInclude Include="GLHeader.h" />
     <ClInclude Include="GLInputSystem.h" />
+    <ClInclude Include="GLInputFunc.h" />
     <ClInclude Include="GLRenderTarget.h" />
     <ClInclude Include="GLTexture.h" />
     <ClInclude Include="GraphicsSystem.h" />
+    <ClInclude Include="InputInfo.h" />
+    <ClInclude Include="InputState.h" />
+    <ClInclude Include="InputSystem.h" />
+    <ClInclude Include="Key.h" />
     <ClInclude Include="Log.h" />
+    <ClInclude Include="MouseButton.h" />
     <ClInclude Include="RenderTarget.h" />
+    <ClInclude Include="ScrollWheelDir.h" />
     <ClInclude Include="Tests.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="Timer.h" />
