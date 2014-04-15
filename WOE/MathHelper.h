@@ -25,15 +25,13 @@ public:
 
 		glm::mat4 mat = glm::lookAt(eye.getGLMVec(), center.getGLMVec(), up.getGLMVec());
 
-		return Mat4(mat);
-
 #elif defined(_WOE_DIRECTX)
 
 		DirectX::XMMATRIX mat = DirectX::XMMatrixLookAtLH(eye.loadXM(), center.loadXM(), up.loadXM());
 
-		return Mat4(mat);
-
 #endif // _WOE_DIRECTX
+
+		return Mat4(mat);
 	}
 	
 };
