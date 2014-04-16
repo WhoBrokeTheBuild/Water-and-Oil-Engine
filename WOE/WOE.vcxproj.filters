@@ -150,6 +150,12 @@
     <ClCompile Include="MathHelper.cpp">
       <Filter>Project\Math</Filter>
     </ClCompile>
+    <ClCompile Include="DXVector.cpp">
+      <Filter>Project\Math\Vector</Filter>
+    </ClCompile>
+    <ClCompile Include="GLVector.cpp">
+      <Filter>Project\Math\Vector</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">

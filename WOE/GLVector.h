@@ -148,6 +148,10 @@ struct GLVec2
 {
 public:
 
+	static GLVec2		ZERO,
+						ONE,
+						NEG_ONE;
+
 	GLVec2( void )
 		: GLVec()
 	{ }
@@ -164,12 +168,56 @@ public:
 		: GLVec(glm::vec2(x, y))
 	{ }
 
+	inline float getX( void ) const 
+	{
+		return m_Vec.x;
+	}
+
+	inline float getY( void ) const 
+	{
+		return m_Vec.y;
+	}
+
+	inline void setX( const float& x )
+	{
+		m_Vec.x = x;
+	}
+
+	inline void setY( const float& y )
+	{
+		m_Vec.y = y;
+	}
+
+	inline void addX( const float& x )
+	{
+		m_Vec.x += x;
+	}
+
+	inline void addY( const float& y )
+	{
+		m_Vec.y += y;
+	}
+
+	inline void subX( const float& x )
+	{
+		m_Vec.x -= x;
+	}
+
+	inline void subY( const float& y )
+	{
+		m_Vec.y -= y;
+	}
+
 };
 
 struct GLVec3
 	: public GLVec<glm::vec3>
 {
 public:
+
+	static GLVec3		ZERO,
+						ONE,
+						NEG_ONE;
 
 	GLVec3( void )
 		: GLVec()
@@ -186,6 +234,66 @@ public:
 	GLVec3( const float& x, const float& y, const float& z )
 		: GLVec(glm::vec3(x, y, z))
 	{ }
+
+	inline float getX( void ) const 
+	{
+		return m_Vec.x;
+	}
+
+	inline float getY( void ) const 
+	{
+		return m_Vec.y;
+	}
+
+	inline float getZ( void ) const 
+	{
+		return m_Vec.z;
+	}
+
+	inline void setX( const float& x )
+	{
+		m_Vec.x = x;
+	}
+
+	inline void setY( const float& y )
+	{
+		m_Vec.y = y;
+	}
+
+	inline void setZ( const float& z )
+	{
+		m_Vec.z = z;
+	}
+
+	inline void addX( const float& x )
+	{
+		m_Vec.x += x;
+	}
+
+	inline void addY( const float& y )
+	{
+		m_Vec.y += y;
+	}
+
+	inline void addZ( const float& z )
+	{
+		m_Vec.z += z;
+	}
+
+	inline void subX( const float& x )
+	{
+		m_Vec.x -= x;
+	}
+
+	inline void subY( const float& y )
+	{
+		m_Vec.y -= y;
+	}
+
+	inline void subZ( const float& z )
+	{
+		m_Vec.z -= z;
+	}
 
 	inline float dot( const GLVec3& rhs ) const
 	{
@@ -206,6 +314,10 @@ struct GLVec4
 {
 public:
 
+	static GLVec4		ZERO,
+						ONE,
+						NEG_ONE;
+
 	GLVec4( void )
 		: GLVec()
 	{ }
@@ -221,6 +333,86 @@ public:
 	GLVec4( const float& x, const float& y, const float& z, const float& w )
 		: GLVec(glm::vec4(x, y, z, w))
 	{ }
+
+	inline float getX( void ) const 
+	{
+		return m_Vec.x;
+	}
+
+	inline float getY( void ) const 
+	{
+		return m_Vec.y;
+	}
+
+	inline float getZ( void ) const 
+	{
+		return m_Vec.z;
+	}
+
+	inline float getW( void ) const 
+	{
+		return m_Vec.w;
+	}
+
+	inline void setX( const float& x )
+	{
+		m_Vec.x = x;
+	}
+
+	inline void setY( const float& y )
+	{
+		m_Vec.y = y;
+	}
+
+	inline void setZ( const float& z )
+	{
+		m_Vec.z = z;
+	}
+
+	inline void setW( const float& w )
+	{
+		m_Vec.w = w;
+	}
+
+	inline void addX( const float& x )
+	{
+		m_Vec.x += x;
+	}
+
+	inline void addY( const float& y )
+	{
+		m_Vec.y += y;
+	}
+
+	inline void addZ( const float& z )
+	{
+		m_Vec.z += z;
+	}
+
+	inline void addW( const float& w )
+	{
+		m_Vec.w += w;
+	}
+
+	inline void subX( const float& x )
+	{
+		m_Vec.x -= x;
+	}
+
+	inline void subY( const float& y )
+	{
+		m_Vec.y -= y;
+	}
+
+	inline void subZ( const float& z )
+	{
+		m_Vec.z -= z;
+	}
+
+	inline void subW( const float& w )
+	{
+		m_Vec.w -= w;
+	}
 
 	inline float dot( const GLVec4& rhs ) const
 	{

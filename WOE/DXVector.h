@@ -121,6 +121,10 @@ struct DXVec2
 {
 public:
 
+	static DXVec2		ZERO,
+						ONE,
+						NEG_ONE;
+
 	DXVec2( void )
 		: DXVec(DirectX::XMFLOAT2(0.0f, 0.0f))
 	{ }
@@ -132,6 +136,46 @@ public:
 	DXVec2( const float& x, const float& y )
 		: DXVec(DirectX::XMFLOAT2(x, y))
 	{ }
+
+	inline float getX( void ) const 
+	{
+		return DirectX::XMVectorGetX(loadXM());
+	}
+
+	inline float getY( void ) const 
+	{
+		return DirectX::XMVectorGetY(loadXM());
+	}
+
+	inline void setX( const float& x )
+	{
+		storeXM(DirectX::XMVectorSetX(loadXM(), x));
+	}
+
+	inline void setY( const float& y )
+	{
+		storeXM(DirectX::XMVectorSetY(loadXM(), y));
+	}
+
+	inline void addX( const float& x )
+	{
+		setX(getX() + x);
+	}
+
+	inline void addY( const float& y )
+	{
+		setY(getY() + y);
+	}
+
+	inline void subX( const float& x )
+	{
+		setX(getX() - x);
+	}
+
+	inline void subY( const float& y )
+	{
+		setY(getY() - y);
+	}
 
 	virtual inline DirectX::XMVECTOR loadXM( void ) const
 	{
@@ -190,6 +234,10 @@ struct DXVec3
 {
 public:
 
+	static DXVec3		ZERO,
+						ONE,
+						NEG_ONE;
+
 	DXVec3( void )
 		: DXVec(DirectX::XMFLOAT3(0.0f, 0.0f, 0.0f))
 	{ }
@@ -201,6 +249,66 @@ public:
 	DXVec3( const float& x, const float& y, const float& z )
 		: DXVec(DirectX::XMFLOAT3(x, y, z))
 	{ }
+
+	inline float getX( void ) const 
+	{
+		return DirectX::XMVectorGetX(loadXM());
+	}
+
+	inline float getY( void ) const 
+	{
+		return DirectX::XMVectorGetY(loadXM());
+	}
+
+	inline float getZ( void ) const 
+	{
+		return DirectX::XMVectorGetZ(loadXM());
+	}
+
+	inline void setX( const float& x )
+	{
+		storeXM(DirectX::XMVectorSetX(loadXM(), x));
+	}
+
+	inline void setY( const float& y )
+	{
+		storeXM(DirectX::XMVectorSetY(loadXM(), y));
+	}
+
+	inline void setZ( const float& z )
+	{
+		storeXM(DirectX::XMVectorSetZ(loadXM(), z));
+	}
+
+	inline void addX( const float& x )
+	{
+		setX(getX() + x);
+	}
+
+	inline void addY( const float& y )
+	{
+		setY(getY() + y);
+	}
+
+	inline void addZ( const float& z )
+	{
+		setZ(getZ() + z);
+	}
+
+	inline void subX( const float& x )
+	{
+		setX(getX() - x);
+	}
+
+	inline void subY( const float& y )
+	{
+		setY(getY() - y);
+	}
+
+	inline void subZ( const float& z )
+	{
+		setZ(getZ() - z);
+	}
 
 	virtual inline DirectX::XMVECTOR loadXM( void ) const
 	{
@@ -270,6 +378,10 @@ struct DXVec4
 {
 public:
 
+	static DXVec4		ZERO,
+						ONE,
+						NEG_ONE;
+
 	DXVec4( void )
 		: DXVec(DirectX::XMFLOAT4(0.0f, 0.0f, 0.0f, 0.0f))
 	{ }
@@ -281,6 +393,86 @@ public:
 	DXVec4( const float& x, const float& y, const float& z, const float& w )
 		: DXVec(DirectX::XMFLOAT4(x, y, z, w))
 	{ }
+
+	inline float getX( void ) const 
+	{
+		return DirectX::XMVectorGetX(loadXM());
+	}
+
+	inline float getY( void ) const 
+	{
+		return DirectX::XMVectorGetY(loadXM());
+	}
+
+	inline float getZ( void ) const 
+	{
+		return DirectX::XMVectorGetZ(loadXM());
+	}
+
+	inline float getW( void ) const 
+	{
+		return DirectX::XMVectorGetW(loadXM());
+	}
+
+	inline void setX( const float& x )
+	{
+		storeXM(DirectX::XMVectorSetX(loadXM(), x));
+	}
+
+	inline void setY( const float& y )
+	{
+		storeXM(DirectX::XMVectorSetY(loadXM(), y));
+	}
+
+	inline void setZ( const float& z )
+	{
+		storeXM(DirectX::XMVectorSetZ(loadXM(), z));
+	}
+
+	inline void setW( const float& w )
+	{
+		storeXM(DirectX::XMVectorSetW(loadXM(), w));
+	}
+
+	inline void addX( const float& x )
+	{
+		setX(getX() + x);
+	}
+
+	inline void addY( const float& y )
+	{
+		setY(getY() + y);
+	}
+
+	inline void addZ( const float& z )
+	{
+		setZ(getZ() + z);
+	}
+
+	inline void addW( const float& w )
+	{
+		setW(getW() + w);
+	}
+
+	inline void subX( const float& x )
+	{
+		setX(getX() - x);
+	}
+
+	inline void subY( const float& y )
+	{
+		setY(getY() - y);
+	}
+
+	inline void subZ( const float& z )
+	{
+		setZ(getZ() - z);
+	}
+
+	inline void subW( const float& w )
+	{
+		setW(getW() - w);
+	}
 
 	virtual inline DirectX::XMVECTOR loadXM( void ) const
 	{

@@ -6,6 +6,7 @@
 
 #include <iostream>
 #include <fstream>
+#include "MathHelper.h"
 
 Game* Game::sp_Instance = nullptr;
 Args* Game::sp_Args     = nullptr;
@@ -66,6 +67,11 @@ Game::Game( void )
 	Vec3 v3_3(v3_2);
 	Vec3 v3_4(3.0f);
 
+	v3_1.setX(4.0f);
+	v3_1.setY(v3_1.getY() + 2.0f);
+	v3_2.addX(2.0f);
+	v3_2.subX(4.0f);
+
 	v3_4.normalize();
 	v3_3.dot(v3_1);
 	v3_1.length();
@@ -87,6 +93,8 @@ Game::Game( void )
 
 	Mat4 m4_1;
 	Mat4 m4_2(m4_1);
+
+	Mat4 lookAt_1 = MathHelper::LookAt(Vec3::ZERO, Vec3::ONE, Vec3(0.0f, 1.0f, 0.0f));
 
 	Log::Info(getClassName(), "Finished");
 }

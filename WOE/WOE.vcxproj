@@ -78,6 +78,7 @@
     <ClCompile Include="DXInputSystem.cpp" />
     <ClCompile Include="DXRenderTarget.cpp" />
     <ClCompile Include="DXTexture.cpp" />
+    <ClCompile Include="DXVector.cpp" />
     <ClCompile Include="Event.cpp" />
     <ClCompile Include="EventDispatcher.cpp" />
     <ClCompile Include="Game.cpp" />
@@ -88,6 +89,7 @@
     <ClCompile Include="GLInputFunc.cpp" />
     <ClCompile Include="GLRenderTarget.cpp" />
     <ClCompile Include="GLTexture.cpp" />
+    <ClCompile Include="GLVector.cpp" />
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MathHelper.cpp" />
