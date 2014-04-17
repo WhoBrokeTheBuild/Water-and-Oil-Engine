@@ -17,14 +17,14 @@ public:
 
 	inline Camera( const float& width, const float& height, const Vec3& pos, const Vec3& dir, const Vec3& up, const float& fov, const float& vNear, const float& vFar, const float& speed )
 		: m_ProjUpdated		(true),
-		m_InitialPos		(pos),
-		m_InitialUp			(up),
-		m_InitialDir		(dir),
-		m_InitialFOV		(fov),
-		m_InitialNear		(vNear),
-		m_InitialFar		(vFar),
-		m_InitialSpeed		(speed)//,
-		//m_Orient			(1, 0, 0, 0)
+		  m_InitialPos		(pos),
+		  m_InitialUp		(up),
+		  m_InitialDir		(dir),
+		  m_InitialFOV		(fov),
+		  m_InitialNear		(vNear),
+		  m_InitialFar		(vFar),
+		  m_InitialSpeed	(speed),
+		  m_Orient			(1, 0, 0, 0)
 	{
 		reset(width, height);
 		getViewMatrix();
