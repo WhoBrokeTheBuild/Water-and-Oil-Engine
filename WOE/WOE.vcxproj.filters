@@ -73,6 +73,9 @@
     <Filter Include="Project\Math\Matrix">
       <UniqueIdentifier>{e10e88b5-35b2-4e95-bbe9-5828230e158c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Project\Math\Quaternion">
+      <UniqueIdentifier>{5bdfce36-0871-48fa-9721-937baa60d00e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -138,15 +141,6 @@
     <ClCompile Include="DXInputFunc.cpp">
       <Filter>Project\Input\Util</Filter>
     </ClCompile>
-    <ClCompile Include="GLCamera.cpp">
-      <Filter>Project\Scene\Camera</Filter>
-    </ClCompile>
-    <ClCompile Include="BaseCamera.cpp">
-      <Filter>Project\Scene\Camera</Filter>
-    </ClCompile>
-    <ClCompile Include="DXCamera.cpp">
-      <Filter>Project\Scene\Camera</Filter>
-    </ClCompile>
     <ClCompile Include="MathHelper.cpp">
       <Filter>Project\Math</Filter>
     </ClCompile>
@@ -155,6 +149,9 @@
     </ClCompile>
     <ClCompile Include="GLVector.cpp">
       <Filter>Project\Math\Vector</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Project\Scene\Camera</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -278,15 +275,6 @@
     <ClInclude Include="InputInfo.h">
       <Filter>Project\Input</Filter>
     </ClInclude>
-    <ClInclude Include="GLCamera.h">
-      <Filter>Project\Scene\Camera</Filter>
-    </ClInclude>
-    <ClInclude Include="BaseCamera.h">
-      <Filter>Project\Scene\Camera</Filter>
-    </ClInclude>
-    <ClInclude Include="DXCamera.h">
-      <Filter>Project\Scene\Camera</Filter>
-    </ClInclude>
     <ClInclude Include="Camera.h">
       <Filter>Project\Scene\Camera</Filter>
     </ClInclude>
@@ -310,6 +298,15 @@
     </ClInclude>
     <ClInclude Include="DXMatrix.h">
       <Filter>Project\Math\Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="Quaternion.h">
+      <Filter>Project\Math\Quaternion</Filter>
+    </ClInclude>
+    <ClInclude Include="GLQuaternion.h">
+      <Filter>Project\Math\Quaternion</Filter>
+    </ClInclude>
+    <ClInclude Include="DXQuaternion.h">
+      <Filter>Project\Math\Quaternion</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

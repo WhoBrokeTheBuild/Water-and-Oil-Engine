@@ -18,9 +18,10 @@ public:
 		: m_Vec(other)
 	{ }
 
-	inline void operator=( const DXVec& rhs )
+	inline DXVec& operator=( const DXVec& rhs )
 	{
 		m_Vec = rhs.m_Vec;
+		return *this;
 	}
 
 	inline float length( void ) const
@@ -31,34 +32,6 @@ public:
 	inline float lengthSquared( void ) const
 	{
 		return DirectX::XMVectorGetX(DirectX::XMVector2LengthSq(loadXM()));
-	}
-
-	inline const DXVec operator+( const DXVec& rhs ) const
-	{
-		DXVec out;
-		out += rhs;
-		return out;
-	}
-
-	inline const DXVec operator-( const DXVec& rhs ) const
-	{
-		DXVec out;
-		out -= rhs;
-		return out;
-	}
-
-	inline const DXVec operator*( const DXVec& rhs ) const
-	{
-		DXVec out;
-		out *= rhs;
-		return out;
-	}
-
-	inline const DXVec operator/( const DXVec& rhs ) const
-	{
-		DXVec out;
-		out /= rhs;
-		return out;
 	}
 
 	DXVec& operator+=( const DXVec& rhs )
@@ -97,7 +70,7 @@ public:
 		return *this;
 	}
 
-	inline bool operator!=( const DXVec& rhs )
+	inline bool operator!=( const DXVec<T>& rhs )
 	{
 		return ! (*this == rhs);
 	}
@@ -107,10 +80,10 @@ public:
 		return m_Vec;
 	}
 
-protected:
-
 	virtual DirectX::XMVECTOR loadXM( void ) const = 0;
 	virtual void storeXM( const DirectX::XMVECTOR& vec ) = 0;
+
+protected:
 
 	T	m_Vec;
 
@@ -135,6 +108,10 @@ public:
 
 	DXVec2( const float& x, const float& y )
 		: DXVec(DirectX::XMFLOAT2(x, y))
+	{ }
+
+	DXVec2( const DXVec<DirectX::XMFLOAT2>& rhs )
+		: DXVec(rhs)
 	{ }
 
 	inline float getX( void ) const 
@@ -190,6 +167,34 @@ public:
 	inline void normalize( void )
 	{
 		storeXM(DirectX::XMVector2Normalize(loadXM()));
+	}
+
+	inline const DXVec2 operator+( const DXVec2& rhs ) const
+	{
+		DXVec2 out;
+		out += rhs;
+		return out;
+	}
+
+	inline const DXVec2 operator-( const DXVec2& rhs ) const
+	{
+		DXVec2 out;
+		out -= rhs;
+		return out;
+	}
+
+	inline const DXVec2 operator*( const DXVec2& rhs ) const
+	{
+		DXVec2 out;
+		out *= rhs;
+		return out;
+	}
+
+	inline const DXVec2 operator/( const DXVec2& rhs ) const
+	{
+		DXVec2 out;
+		out /= rhs;
+		return out;
 	}
 
 	inline const DXVec2 operator*( float value ) const
@@ -248,6 +253,14 @@ public:
 
 	DXVec3( const float& x, const float& y, const float& z )
 		: DXVec(DirectX::XMFLOAT3(x, y, z))
+	{ }
+
+	DXVec3( const DXVec<DirectX::XMFLOAT3>& rhs )
+		: DXVec(rhs)
+	{ }
+
+	DXVec3( const DXVec2& other, const float& z )
+		: DXVec(DirectX::XMFLOAT3(other.getX(), other.getY(), z))
 	{ }
 
 	inline float getX( void ) const 
@@ -337,6 +350,34 @@ public:
 		return out;
 	}
 
+	inline const DXVec3 operator+( const DXVec& rhs ) const
+	{
+		DXVec3 out;
+		out += rhs;
+		return out;
+	}
+
+	inline const DXVec3 operator-( const DXVec3& rhs ) const
+	{
+		DXVec3 out;
+		out -= rhs;
+		return out;
+	}
+
+	inline const DXVec3 operator*( const DXVec3& rhs ) const
+	{
+		DXVec3 out;
+		out *= rhs;
+		return out;
+	}
+
+	inline const DXVec3 operator/( const DXVec3& rhs ) const
+	{
+		DXVec3 out;
+		out /= rhs;
+		return out;
+	}
+
 	inline const DXVec3 operator*( float value ) const
 	{
 		return DXVec3(m_Vec.x * value, m_Vec.y * value, m_Vec.z * value);
@@ -392,6 +433,14 @@ public:
 
 	DXVec4( const float& x, const float& y, const float& z, const float& w )
 		: DXVec(DirectX::XMFLOAT4(x, y, z, w))
+	{ }
+
+	DXVec4( const DXVec<DirectX::XMFLOAT4>& rhs )
+		: DXVec(rhs)
+	{ }
+
+	DXVec4( const DXVec3& other, const float& w )
+		: DXVec(DirectX::XMFLOAT4(other.getX(), other.getY(), other.getZ(), w))
 	{ }
 
 	inline float getX( void ) const 
@@ -492,6 +541,34 @@ public:
 	inline void normalize( void )
 	{
 		storeXM(DirectX::XMVector4Normalize(loadXM()));
+	}
+
+	inline const DXVec4 operator+( const DXVec4& rhs ) const
+	{
+		DXVec4 out;
+		out += rhs;
+		return out;
+	}
+
+	inline const DXVec4 operator-( const DXVec4& rhs ) const
+	{
+		DXVec4 out;
+		out -= rhs;
+		return out;
+	}
+
+	inline const DXVec4 operator*( const DXVec4& rhs ) const
+	{
+		DXVec4 out;
+		out *= rhs;
+		return out;
+	}
+
+	inline const DXVec4 operator/( const DXVec4& rhs ) const
+	{
+		DXVec4 out;
+		out /= rhs;
+		return out;
 	}
 
 	inline const DXVec4 operator*( float value ) const

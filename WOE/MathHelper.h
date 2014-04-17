@@ -33,7 +33,46 @@ public:
 
 		return Mat4(mat);
 	}
-	
+
+	static inline float Radians( const float& degrees )
+	{
+#if defined(_WOE_OPENGL)
+
+		return glm::radians(degrees);
+
+#elif defined(_WOE_DIRECTX)
+
+		return DirectX::XMConvertToRadians(degrees);
+
+#endif // _WOE_DIRECTX
+	}
+
+	static inline float Degrees( const float& radians )
+	{
+#if defined(_WOE_OPENGL)
+
+		return glm::degrees(radians);
+
+#elif defined(_WOE_DIRECTX)
+
+		return DirectX::XMConvertToDegrees(radians);
+
+#endif // _WOE_DIRECTX
+	}
+
+	static inline Mat4 PerspectiveFOV(float fov, float aspectWidth, float aspectHeight, float vNear, float vFar)
+	{
+#if defined(_WOE_OPENGL)
+
+		return glm::perspectiveFov(fov, aspectWidth, aspectHeight, vNear, vFar);
+
+#elif defined(_WOE_DIRECTX)
+
+		return DirectX::XMMatrixPerspectiveFovLH(fov, aspectWidth / aspectHeight, vNear, vFar);
+
+#endif // _WOE_DIRECTX
+	}
+
 };
 
 #endif // WOE_MATH_HELPER_H

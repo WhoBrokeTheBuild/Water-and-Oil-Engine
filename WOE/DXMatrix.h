@@ -3,6 +3,8 @@
 
 #if defined(_WOE_DIRECTX)
 
+#include "DXVector.h"
+
 template <typename T>
 struct DXMat
 {
@@ -19,6 +21,12 @@ public:
 	DXMat( const T& other )
 		: m_Mat(other)
 	{ }
+
+	DXMat( const DirectX::XMMATRIX& mat )
+		: m_Mat()
+	{
+		storeXM(DirectX::XMMatrixIdentity());
+	}
 
 	inline void operator=( const DXMat& rhs )
 	{
@@ -46,6 +54,24 @@ public:
 		return (m_Mat == rhs.m_Mat);
 	}
 
+	inline void translate( const Vec3& amount )
+	{
+		storeXM(DirectX::XMMatrixMultiply(loadXM(), DirectX::XMMatrixTranslationFromVector(amount.loadXM())));
+	}
+
+	inline void rotate( const float& radians, const Vec3& axis )
+	{
+		storeXM(DirectX::XMMatrixMultiply(loadXM(), DirectX::XMMatrixRotationAxis(axis.loadXM(), radians)));
+	}
+
+	inline void scale( const Vec3& amount )
+	{
+		storeXM(DirectX::XMMatrixMultiply(loadXM(), DirectX::XMMatrixScalingFromVector(amount.loadXM())));
+	}
+
+	virtual DirectX::XMMATRIX loadXM( void ) const = 0;
+	virtual void storeXM( const DirectX::XMMATRIX& mat ) = 0;
+
 protected:
 
 	T	m_Mat;
@@ -59,14 +85,20 @@ public:
 
 	DXMat3x3( void )
 		: DXMat()
-	{
-		DirectX::XMStoreFloat3x3(&m_Mat, DirectX::XMMatrixIdentity());
-	}
+	{ }
 
 	DXMat3x3( const DirectX::XMMATRIX& mat )
-		: DXMat()
+		: DXMat(mat)
+	{ }
+
+	virtual DirectX::XMMATRIX loadXM( void ) const
 	{
-		XMStoreFloat3x3(&m_Mat, mat);
+		return DirectX::XMLoadFloat3x3(&m_Mat);
+	}
+
+	virtual void storeXM( const DirectX::XMMATRIX& mat )
+	{
+		DirectX::XMStoreFloat3x3(&m_Mat, mat);
 	}
 
 };
@@ -78,14 +110,20 @@ public:
 
 	DXMat4x3( void )
 		: DXMat()
-	{
-		DirectX::XMStoreFloat4x3(&m_Mat, DirectX::XMMatrixIdentity());
-	}
+	{ }
 
 	DXMat4x3( const DirectX::XMMATRIX& mat )
-		: DXMat()
+		: DXMat(mat)
+	{ }
+
+	virtual DirectX::XMMATRIX loadXM( void ) const
 	{
-		XMStoreFloat4x3(&m_Mat, mat);
+		return DirectX::XMLoadFloat4x3(&m_Mat);
+	}
+
+	virtual void storeXM( const DirectX::XMMATRIX& mat )
+	{
+		DirectX::XMStoreFloat4x3(&m_Mat, mat);
 	}
 
 };
@@ -97,14 +135,20 @@ public:
 
 	DXMat4x4( void )
 		: DXMat()
-	{
-		DirectX::XMStoreFloat4x4(&m_Mat, DirectX::XMMatrixIdentity());
-	}
+	{ }
 
 	DXMat4x4( const DirectX::XMMATRIX& mat )
 		: DXMat()
+	{ }
+
+	virtual DirectX::XMMATRIX loadXM( void ) const
 	{
-		XMStoreFloat4x4(&m_Mat, mat);
+		return DirectX::XMLoadFloat4x4(&m_Mat);
+	}
+
+	virtual void storeXM( const DirectX::XMMATRIX& mat )
+	{
+		DirectX::XMStoreFloat4x4(&m_Mat, mat);
 	}
 
 };

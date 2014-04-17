@@ -69,10 +69,9 @@
   <ItemGroup>
     <ClCompile Include="BaseGraphicsSystem.cpp" />
     <ClCompile Include="BaseInputSystem.cpp" />
-    <ClCompile Include="BaseCamera.cpp" />
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="Console.cpp" />
-    <ClCompile Include="DXCamera.cpp" />
     <ClCompile Include="DXGraphicsSystem.cpp" />
     <ClCompile Include="DXInputFunc.cpp" />
     <ClCompile Include="DXInputSystem.cpp" />
@@ -83,7 +82,6 @@
     <ClCompile Include="EventDispatcher.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameTime.cpp" />
-    <ClCompile Include="GLCamera.cpp" />
     <ClCompile Include="GLGraphicsSystem.cpp" />
     <ClCompile Include="GLInputSystem.cpp" />
     <ClCompile Include="GLInputFunc.cpp" />
@@ -102,18 +100,17 @@
     <ClInclude Include="BaseTexture.h" />
     <ClInclude Include="Callbacks.h" />
     <ClInclude Include="Args.h" />
-    <ClInclude Include="BaseCamera.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="Console.h" />
     <ClInclude Include="Defines.h" />
     <ClInclude Include="Delegate.h" />
-    <ClInclude Include="DXCamera.h" />
     <ClInclude Include="DXGraphicsSystem.h" />
     <ClInclude Include="DXHeader.h" />
     <ClInclude Include="DXInputSystem.h" />
     <ClInclude Include="DXInputFunc.h" />
     <ClInclude Include="DXMatrix.h" />
+    <ClInclude Include="DXQuaternion.h" />
     <ClInclude Include="DXRenderTarget.h" />
     <ClInclude Include="DXTexture.h" />
     <ClInclude Include="DXVector.h" />
@@ -123,12 +120,12 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameTime.h" />
     <ClInclude Include="GameTimeTests.h" />
-    <ClInclude Include="GLCamera.h" />
     <ClInclude Include="GLGraphicsSystem.h" />
     <ClInclude Include="GLHeader.h" />
     <ClInclude Include="GLInputSystem.h" />
     <ClInclude Include="GLInputFunc.h" />
     <ClInclude Include="GLMatrix.h" />
+    <ClInclude Include="GLQuaternion.h" />
     <ClInclude Include="GLRenderTarget.h" />
     <ClInclude Include="GLTexture.h" />
     <ClInclude Include="GLVector.h" />
@@ -141,6 +138,7 @@
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="MathHelper.h" />
     <ClInclude Include="MouseButton.h" />
+    <ClInclude Include="Quaternion.h" />
     <ClInclude Include="RenderTarget.h" />
     <ClInclude Include="ScrollWheelDir.h" />
     <ClInclude Include="Tests.h" />

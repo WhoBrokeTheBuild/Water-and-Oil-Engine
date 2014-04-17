@@ -37,14 +37,9 @@ public:
 		m_Vec = glm::normalize(m_Vec);
 	}
 
-	inline void operator=( const GLVec& rhs )
-	{
-		m_Vec = rhs.m_Vec;
-	}
-
 	inline const GLVec operator+( const GLVec& rhs ) const
 	{
-		return GLVec2(m_Vec + rhs.m_Vec);
+		return GLVec(m_Vec + rhs.m_Vec);
 	}
 
 	inline const GLVec operator-( const GLVec& rhs ) const
@@ -54,7 +49,7 @@ public:
 
 	inline const GLVec operator*( const GLVec& rhs ) const
 	{
-		return GLVec2(m_Vec * rhs.m_Vec);
+		return GLVec(m_Vec * rhs.m_Vec);
 	}
 
 	inline const GLVec operator/( const GLVec& rhs ) const
@@ -75,31 +70,37 @@ public:
 	GLVec& operator+=( const GLVec& rhs )
 	{
 		m_Vec += rhs.m_Vec;
+		return *this;
 	}
 
 	GLVec& operator-=( const GLVec& rhs )
 	{
 		m_Vec -= rhs.m_Vec;
+		return *this;
 	}
 
 	GLVec& operator*=( const GLVec& rhs )
 	{
 		m_Vec *= rhs.m_Vec;
+		return *this;
 	}
 
 	GLVec& operator/=( const GLVec& rhs )
 	{
 		m_Vec /= rhs.m_Vec;
+		return *this;
 	}
 
 	GLVec& operator*=( float value )
 	{
 		m_Vec *= value;
+		return *this;
 	}
 
 	GLVec& operator/=( float value )
 	{
 		m_Vec *= value;
+		return *this;
 	}
 
 	inline bool operator==( const GLVec& rhs )
@@ -168,6 +169,16 @@ public:
 		: GLVec(glm::vec2(x, y))
 	{ }
 
+	GLVec2( const GLVec<glm::vec2>& vec )
+		: GLVec(vec)
+	{ }
+
+	inline GLVec2& operator=( const GLVec2& rhs )
+	{
+		m_Vec = rhs.m_Vec;
+		return *this;
+	}
+
 	inline float getX( void ) const 
 	{
 		return m_Vec.x;
@@ -234,6 +245,20 @@ public:
 	GLVec3( const float& x, const float& y, const float& z )
 		: GLVec(glm::vec3(x, y, z))
 	{ }
+
+	GLVec3( const GLVec<glm::vec3>& vec )
+		: GLVec(vec)
+	{ }
+
+	GLVec3( const GLVec2& other, const float& z )
+		: GLVec(glm::vec3(other.getX(), other.getY(), z))
+	{ }
+
+	inline GLVec3& operator=( const GLVec3& rhs )
+	{
+		m_Vec = rhs.m_Vec;
+		return *this;
+	}
 
 	inline float getX( void ) const 
 	{
@@ -333,6 +358,20 @@ public:
 	GLVec4( const float& x, const float& y, const float& z, const float& w )
 		: GLVec(glm::vec4(x, y, z, w))
 	{ }
+
+	GLVec4( const GLVec<glm::vec4>& vec )
+		: GLVec(vec)
+	{ }
+
+	GLVec4( const GLVec3& other, const float& w )
+		: GLVec(glm::vec4(other.getX(), other.getY(), other.getZ(), w))
+	{ }
+
+	inline GLVec4& operator=( const GLVec4& rhs )
+	{
+		m_Vec = rhs.m_Vec;
+		return *this;
+	}
 
 	inline float getX( void ) const 
 	{

@@ -48,6 +48,26 @@ public:
 		return (m_Mat == rhs.m_Mat);
 	}
 
+	inline void translate( const Vec3& amount )
+	{
+		m_Mat *= glm::translate(amount.getGLMVec());
+	}
+
+	inline void rotate( const float& radians, const Vec3& axis )
+	{
+		m_Mat *= glm::rotate(axis.getGLMVec(), radians);
+	}
+
+	inline void scale( const Vec3& amount )
+	{
+		m_Mat *= glm::scale(amount.getGLMVec());
+	}
+
+	inline T getGLMMat( void ) const 
+	{
+		return m_Mat;
+	}
+
 protected:
 
 	T	m_Mat;
