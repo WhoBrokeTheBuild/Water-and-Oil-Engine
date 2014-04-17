@@ -69,6 +69,7 @@
   <ItemGroup>
     <ClCompile Include="BaseGraphicsSystem.cpp" />
     <ClCompile Include="BaseInputSystem.cpp" />
+    <ClCompile Include="BaseShaderManager.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="Console.cpp" />
@@ -76,6 +77,7 @@
     <ClCompile Include="DXInputFunc.cpp" />
     <ClCompile Include="DXInputSystem.cpp" />
     <ClCompile Include="DXRenderTarget.cpp" />
+    <ClCompile Include="DXShaderManager.cpp" />
     <ClCompile Include="DXTexture.cpp" />
     <ClCompile Include="DXVector.cpp" />
     <ClCompile Include="Event.cpp" />
@@ -86,6 +88,7 @@
     <ClCompile Include="GLInputSystem.cpp" />
     <ClCompile Include="GLInputFunc.cpp" />
     <ClCompile Include="GLRenderTarget.cpp" />
+    <ClCompile Include="GLShaderManager.cpp" />
     <ClCompile Include="GLTexture.cpp" />
     <ClCompile Include="GLVector.cpp" />
     <ClCompile Include="Log.cpp" />
@@ -97,6 +100,7 @@
     <ClInclude Include="BaseGraphicsSystem.h" />
     <ClInclude Include="BaseInputSystem.h" />
     <ClInclude Include="BaseRenderTarget.h" />
+    <ClInclude Include="BaseShaderManager.h" />
     <ClInclude Include="BaseTexture.h" />
     <ClInclude Include="Callbacks.h" />
     <ClInclude Include="Args.h" />
@@ -112,6 +116,7 @@
     <ClInclude Include="DXMatrix.h" />
     <ClInclude Include="DXQuaternion.h" />
     <ClInclude Include="DXRenderTarget.h" />
+    <ClInclude Include="DXShaderManager.h" />
     <ClInclude Include="DXTexture.h" />
     <ClInclude Include="DXVector.h" />
     <ClInclude Include="Event.h" />
@@ -127,6 +132,7 @@
     <ClInclude Include="GLMatrix.h" />
     <ClInclude Include="GLQuaternion.h" />
     <ClInclude Include="GLRenderTarget.h" />
+    <ClInclude Include="GLShaderManager.h" />
     <ClInclude Include="GLTexture.h" />
     <ClInclude Include="GLVector.h" />
     <ClInclude Include="GraphicsSystem.h" />
@@ -141,6 +147,7 @@
     <ClInclude Include="Quaternion.h" />
     <ClInclude Include="RenderTarget.h" />
     <ClInclude Include="ScrollWheelDir.h" />
+    <ClInclude Include="ShaderManager.h" />
     <ClInclude Include="Tests.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="Timer.h" />

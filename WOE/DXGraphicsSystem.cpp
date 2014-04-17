@@ -96,12 +96,18 @@ DXGraphicsSystem::DXGraphicsSystem( const int& width, const int& height, const s
 
 	mp_DevCtx->RSSetViewports(1, &viewport);
 
+	mp_RenderTarget = New RenderTarget();
+	mp_ShaderManager = New ShaderManager();
+
 	Log::Info(getClassName(), "Finished");
 }
 
 DXGraphicsSystem::~DXGraphicsSystem(void)
 {
 	Log::Info(getClassName(), "Shutting Down");
+
+	delete mp_ShaderManager;
+	delete mp_RenderTarget;
 
 	mp_SwapChain->SetFullscreenState(FALSE, NULL);
 

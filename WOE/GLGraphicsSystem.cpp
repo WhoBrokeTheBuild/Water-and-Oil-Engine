@@ -57,7 +57,8 @@ GLGraphicsSystem::GLGraphicsSystem( const int& width, const int& height, const s
 
 	glfwSetFramebufferSizeCallback(mp_GLFWWindow, glfwResize);
 
-	mp_RenderTarget = New GLRenderTarget();
+	mp_RenderTarget = New RenderTarget();
+	mp_ShaderManager = New ShaderManager();
 
 	Log::Info(getClassName(), "Finished");
 }
@@ -66,6 +67,7 @@ GLGraphicsSystem::~GLGraphicsSystem(void)
 {
 	Log::Info(getClassName(), "Shutting Down");
 
+	delete mp_ShaderManager;
 	delete mp_RenderTarget;
 
 	glfwDestroyWindow(mp_GLFWWindow);

@@ -76,6 +76,9 @@
     <Filter Include="Project\Math\Quaternion">
       <UniqueIdentifier>{5bdfce36-0871-48fa-9721-937baa60d00e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Project\Graphics\ShaderManager">
+      <UniqueIdentifier>{ff499713-723c-454b-ae55-70af2d087dae}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -153,6 +156,13 @@
     <ClCompile Include="Camera.cpp">
       <Filter>Project\Scene\Camera</Filter>
     </ClCompile>
+    <ClCompile Include="DXShaderManager.cpp">
+      <Filter>Project\Graphics\ShaderManager</Filter>
+    </ClCompile>
+    <ClCompile Include="GLShaderManager.cpp">
+      <Filter>Project\Graphics\ShaderManager</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseShaderManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -308,6 +318,16 @@
     <ClInclude Include="DXQuaternion.h">
       <Filter>Project\Math\Quaternion</Filter>
     </ClInclude>
+    <ClInclude Include="ShaderManager.h">
+      <Filter>Project\Graphics\ShaderManager</Filter>
+    </ClInclude>
+    <ClInclude Include="DXShaderManager.h">
+      <Filter>Project\Graphics\ShaderManager</Filter>
+    </ClInclude>
+    <ClInclude Include="GLShaderManager.h">
+      <Filter>Project\Graphics\ShaderManager</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseShaderManager.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="error.log">

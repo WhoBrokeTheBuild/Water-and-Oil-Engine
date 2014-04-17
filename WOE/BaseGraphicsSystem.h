@@ -7,6 +7,7 @@
 
 #include "Color.h"
 #include "RenderTarget.h"
+#include "ShaderManager.h"
 
 class GameTime;
 
@@ -26,7 +27,9 @@ public:
 		: m_Width(width), 
 		  m_Height(height),
 		  m_Title(title),
-		  m_Fullscreen(fullscreen)
+		  m_Fullscreen(fullscreen),
+		  mp_RenderTarget(nullptr),
+		  mp_ShaderManager(nullptr)
 	{ }
 
 	virtual inline ~BaseGraphicsSystem( void ) { }
@@ -72,7 +75,17 @@ public:
 
 		dispatchEvent(Event(EVENT_WINDOW_RESIZED));
 	}
-	
+
+	virtual inline RenderTarget* getRenderTarget( void )
+	{
+		return mp_RenderTarget;
+	}
+
+	virtual inline ShaderManager* getShaderManager( void )
+	{
+		return mp_ShaderManager;
+	}
+
 	virtual void update( const GameTime* pGameTime ) = 0;
 
 	virtual void beginRender( void ) = 0;
@@ -92,6 +105,8 @@ protected:
 	int				m_Width, m_Height;
 
 	RenderTarget*	mp_RenderTarget;
+
+	ShaderManager*  mp_ShaderManager;
 
 	bool			m_Fullscreen;
 
