@@ -328,6 +328,9 @@
       <Filter>Project\Graphics\ShaderManager</Filter>
     </ClInclude>
     <ClInclude Include="BaseShaderManager.h" />
+    <ClInclude Include="ShaderTypes.h">
+      <Filter>Project\Graphics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="error.log">
@@ -336,5 +339,19 @@
     <Text Include="info.log">
       <Filter>Project\Logs</Filter>
     </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="..\Shaders\HLSL\Test_PS.hlsl">
+      <Filter>Project\Shaders\HLSL</Filter>
+    </FxCompile>
+    <FxCompile Include="..\Shaders\HLSL\Test_VS.hlsl">
+      <Filter>Project\Shaders\HLSL</Filter>
+    </FxCompile>
+    <FxCompile Include="..\Shaders\HLSL\Test_PS.fx">
+      <Filter>Project\Shaders\HLSL</Filter>
+    </FxCompile>
+    <FxCompile Include="..\Shaders\HLSL\Test_VS.fx">
+      <Filter>Project\Shaders\HLSL</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>

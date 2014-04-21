@@ -65,6 +65,9 @@
       <AdditionalLibraryDirectories>../Libraries/Arc/lib/;</AdditionalLibraryDirectories>
       <AdditionalDependencies>ArcCore.lib;d3d11.lib;d3dcompiler.lib;dxguid.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PreBuildEvent>
+      <Command>pre-build.bat</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BaseGraphicsSystem.cpp" />
@@ -148,6 +151,7 @@
     <ClInclude Include="RenderTarget.h" />
     <ClInclude Include="ScrollWheelDir.h" />
     <ClInclude Include="ShaderManager.h" />
+    <ClInclude Include="ShaderTypes.h" />
     <ClInclude Include="Tests.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="Timer.h" />
@@ -156,6 +160,25 @@
   <ItemGroup>
     <Text Include="error.log" />
     <Text Include="info.log" />
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="..\Shaders\HLSL\Test_PS.fx">
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug [DirectX]|Win32'">4.0</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug [DirectX]|Win32'">Effect</ShaderType>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug [DirectX]|Win32'">PS</EntryPointName>
+    </FxCompile>
+    <FxCompile Include="..\Shaders\HLSL\Test_PS.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug [DirectX]|Win32'">Pixel</ShaderType>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug [DirectX]|Win32'">PS</EntryPointName>
+    </FxCompile>
+    <FxCompile Include="..\Shaders\HLSL\Test_VS.fx">
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug [DirectX]|Win32'">4.0</ShaderModel>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug [DirectX]|Win32'">VS</EntryPointName>
+    </FxCompile>
+    <FxCompile Include="..\Shaders\HLSL\Test_VS.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug [DirectX]|Win32'">Vertex</ShaderType>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug [DirectX]|Win32'">VS</EntryPointName>
+    </FxCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
