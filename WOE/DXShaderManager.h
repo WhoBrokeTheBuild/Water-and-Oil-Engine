@@ -19,6 +19,11 @@ public:
 
 	bool loadShaderFromFile( const string& filename, const ShaderTypes& type );
 
+	ID3D11VertexShader* mp_VertexShader;
+	ID3D11PixelShader*  mp_PixelShader;
+
+protected:
+
 };
 
 #endif // _WOE_DIRECTX

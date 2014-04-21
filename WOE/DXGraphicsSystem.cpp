@@ -91,8 +91,17 @@ void DXGraphicsSystem::doChangeWindowTitle(const string& title)
 
 void DXGraphicsSystem::handleWindowsMessage( HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam )
 {
+	PAINTSTRUCT ps;
+	HDC hdc;
+
 	switch(message)
 	{
+	case WM_PAINT:
+
+		hdc = BeginPaint( hWnd, &ps );
+		EndPaint( hWnd, &ps );
+
+		break;
 	case WM_DESTROY:
 
 		Game::Instance()->dispatchEvent(Event(Game::EVENT_EXIT));

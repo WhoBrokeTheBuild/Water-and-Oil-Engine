@@ -32,7 +32,7 @@ bool DXShaderManager::loadShaderFromFile( const string& filename, const ShaderTy
 	ID3DBlob* pErrorBlob = nullptr;
 	ID3DBlob* pOutputBlob = nullptr;
 	HRESULT hr;
-	hr = D3DCompileFromFile(wFilename.c_str(), nullptr, nullptr, "main", (type == ShaderTypes::WOE_SHADER_TYPE_VERTEX ? "vs_4_0" : "ps_4_0"), shaderFlags, 0, &pOutputBlob, &pErrorBlob);
+	hr = D3DCompileFromFile(wFilename.c_str(), nullptr, nullptr, (type == ShaderTypes::WOE_SHADER_TYPE_VERTEX ? "VS" : "PS"), (type == ShaderTypes::WOE_SHADER_TYPE_VERTEX ? "vs_4_0" : "ps_4_0"), shaderFlags, 0, &pOutputBlob, &pErrorBlob);
 
 	if (FAILED(hr))
 	{
@@ -60,32 +60,53 @@ bool DXShaderManager::loadShaderFromFile( const string& filename, const ShaderTy
 
 	if (type == ShaderTypes::WOE_SHADER_TYPE_VERTEX)
 	{
-		ID3D11VertexShader* pVertexShader = nullptr;
-		hr = Game::Instance()->getGraphicsSystem()->getDXDevice()->CreateVertexShader(pOutputBlob->GetBufferPointer(), pOutputBlob->GetBufferSize(), nullptr, &pVertexShader);
+		mp_VertexShader = nullptr;
+		hr = Game::Instance()->getGraphicsSystem()->getDXDevice()->CreateVertexShader(pOutputBlob->GetBufferPointer(), pOutputBlob->GetBufferSize(), nullptr, &mp_VertexShader);
 
 		if (FAILED(hr))
 		{
 			Log::Error(getClassName(), "Failed to create vertex shader");
 			pOutputBlob->Release();
-			pVertexShader->Release();
+			mp_VertexShader->Release();
 			return false;
 		}
+
+		ID3D11InputLayout* pVertexLayout = nullptr;
+
+		// Define the input layout
+		D3D11_INPUT_ELEMENT_DESC layout[] =
+		{
+			{ "POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0, D3D11_INPUT_PER_VERTEX_DATA, 0 },
+		};
+		UINT numElements = ARRAYSIZE( layout );
+
+		// Create the input layout
+		hr = Game::Instance()->getGraphicsSystem()->getDXDevice()->CreateInputLayout(layout, numElements, pOutputBlob->GetBufferPointer(), pOutputBlob->GetBufferSize(), &pVertexLayout);
+
+		pOutputBlob->Release();
+
+		if (FAILED( hr ))
+		{
+			Log::Error(getClassName(), "Failed to attach vertex shader");
+			return false;
+		}
+
+		// Set the input layout
+		Game::Instance()->getGraphicsSystem()->getDXDeviceContext()->IASetInputLayout(pVertexLayout);
 	}
 	else
 	{
-		ID3D11PixelShader* pPixelShader = nullptr;
-		hr = Game::Instance()->getGraphicsSystem()->getDXDevice()->CreatePixelShader(pOutputBlob->GetBufferPointer(), pOutputBlob->GetBufferSize(), nullptr, &pPixelShader);
+		mp_PixelShader = nullptr;
+		hr = Game::Instance()->getGraphicsSystem()->getDXDevice()->CreatePixelShader(pOutputBlob->GetBufferPointer(), pOutputBlob->GetBufferSize(), nullptr, &mp_PixelShader);
 
 		if (FAILED(hr))
 		{
 			Log::Error(getClassName(), "Failed to create vertex shader");
 			pOutputBlob->Release();
-			pPixelShader->Release();
+			mp_PixelShader->Release();
 			return false;
 		}
 	}
-
-	pOutputBlob->Release();
 
 	return true;
 }
