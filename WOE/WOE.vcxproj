@@ -79,10 +79,12 @@
     <ClCompile Include="DXGraphicsSystem.cpp" />
     <ClCompile Include="DXInputFunc.cpp" />
     <ClCompile Include="DXInputSystem.cpp" />
+    <ClCompile Include="DXMesh.cpp" />
     <ClCompile Include="DXRenderTarget.cpp" />
     <ClCompile Include="DXShaderManager.cpp" />
     <ClCompile Include="DXTexture.cpp" />
     <ClCompile Include="DXVector.cpp" />
+    <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Event.cpp" />
     <ClCompile Include="EventDispatcher.cpp" />
     <ClCompile Include="Game.cpp" />
@@ -97,11 +99,17 @@
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MathHelper.cpp" />
+    <ClCompile Include="GLMesh.cpp" />
+    <ClCompile Include="Model.cpp" />
     <ClCompile Include="Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseGraphicsSystem.h" />
     <ClInclude Include="BaseInputSystem.h" />
+    <ClInclude Include="BaseMesh.h" />
+    <ClInclude Include="DXMesh.h" />
+    <ClInclude Include="Mesh.h" />
+    <ClInclude Include="Model.h" />
     <ClInclude Include="BaseRenderTarget.h" />
     <ClInclude Include="BaseShaderManager.h" />
     <ClInclude Include="BaseTexture.h" />
@@ -122,6 +130,7 @@
     <ClInclude Include="DXShaderManager.h" />
     <ClInclude Include="DXTexture.h" />
     <ClInclude Include="DXVector.h" />
+    <ClInclude Include="Entity.h" />
     <ClInclude Include="Event.h" />
     <ClInclude Include="EventData.h" />
     <ClInclude Include="EventDispatcher.h" />
@@ -146,10 +155,14 @@
     <ClInclude Include="Log.h" />
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="MathHelper.h" />
+    <ClInclude Include="GLMesh.h" />
     <ClInclude Include="MouseButton.h" />
+    <ClInclude Include="PrimitiveTypes.h" />
     <ClInclude Include="Quaternion.h" />
     <ClInclude Include="RenderTarget.h" />
     <ClInclude Include="ScrollWheelDir.h" />
+    <ClInclude Include="ShaderData.h" />
+    <ClInclude Include="ShaderInfo.h" />
     <ClInclude Include="ShaderManager.h" />
     <ClInclude Include="ShaderTypes.h" />
     <ClInclude Include="Tests.h" />
@@ -162,23 +175,35 @@
     <Text Include="info.log" />
   </ItemGroup>
   <ItemGroup>
-    <FxCompile Include="..\Shaders\HLSL\Test_PS.fx">
+    <Text Include="..\Shaders\HLSL\Test_PS.fx">
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug [DirectX]|Win32'">4.0</ShaderModel>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug [DirectX]|Win32'">Effect</ShaderType>
       <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug [DirectX]|Win32'">PS</EntryPointName>
-    </FxCompile>
-    <FxCompile Include="..\Shaders\HLSL\Test_PS.hlsl">
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug [OpenGL]|Win32'">PS</EntryPointName>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug [OpenGL]|Win32'">4.0</ShaderModel>
+      <FileType>Document</FileType>
+    </Text>
+    <Text Include="..\Shaders\HLSL\Test_PS.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug [DirectX]|Win32'">Pixel</ShaderType>
       <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug [DirectX]|Win32'">PS</EntryPointName>
-    </FxCompile>
-    <FxCompile Include="..\Shaders\HLSL\Test_VS.fx">
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug [OpenGL]|Win32'">PS</EntryPointName>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug [OpenGL]|Win32'">4.0</ShaderModel>
+      <FileType>Document</FileType>
+    </Text>
+    <Text Include="..\Shaders\HLSL\Test_VS.fx">
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug [DirectX]|Win32'">4.0</ShaderModel>
       <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug [DirectX]|Win32'">VS</EntryPointName>
-    </FxCompile>
-    <FxCompile Include="..\Shaders\HLSL\Test_VS.hlsl">
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug [OpenGL]|Win32'">VS</EntryPointName>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug [OpenGL]|Win32'">4.0</ShaderModel>
+      <FileType>Document</FileType>
+    </Text>
+    <Text Include="..\Shaders\HLSL\Test_VS.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug [DirectX]|Win32'">Vertex</ShaderType>
       <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug [DirectX]|Win32'">VS</EntryPointName>
-    </FxCompile>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug [OpenGL]|Win32'">VS</EntryPointName>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug [OpenGL]|Win32'">4.0</ShaderModel>
+      <FileType>Document</FileType>
+    </Text>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

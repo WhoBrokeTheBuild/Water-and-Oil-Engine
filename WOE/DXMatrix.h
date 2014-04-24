@@ -54,17 +54,17 @@ public:
 		return (m_Mat == rhs.m_Mat);
 	}
 
-	inline void translate( const Vec3& amount )
+	inline void translate( const DXVec3& amount )
 	{
 		storeXM(DirectX::XMMatrixMultiply(loadXM(), DirectX::XMMatrixTranslationFromVector(amount.loadXM())));
 	}
 
-	inline void rotate( const float& radians, const Vec3& axis )
+	inline void rotate( const float& radians, const DXVec3& axis )
 	{
 		storeXM(DirectX::XMMatrixMultiply(loadXM(), DirectX::XMMatrixRotationAxis(axis.loadXM(), radians)));
 	}
 
-	inline void scale( const Vec3& amount )
+	inline void scale( const DXVec3& amount )
 	{
 		storeXM(DirectX::XMMatrixMultiply(loadXM(), DirectX::XMMatrixScalingFromVector(amount.loadXM())));
 	}

@@ -4,6 +4,7 @@
 #if defined(_WOE_OPENGL)
 
 #include "GLHeader.h"
+#include "Vector.h"
 
 template <typename T>
 struct GLMat
@@ -48,17 +49,17 @@ public:
 		return (m_Mat == rhs.m_Mat);
 	}
 
-	inline void translate( const Vec3& amount )
+	inline void translate( const GLVec3& amount )
 	{
 		m_Mat *= glm::translate(amount.getGLMVec());
 	}
 
-	inline void rotate( const float& radians, const Vec3& axis )
+	inline void rotate( const float& radians, const GLVec3& axis )
 	{
 		m_Mat *= glm::rotate(axis.getGLMVec(), radians);
 	}
 
-	inline void scale( const Vec3& amount )
+	inline void scale( const GLVec3& amount )
 	{
 		m_Mat *= glm::scale(amount.getGLMVec());
 	}

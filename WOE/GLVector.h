@@ -219,6 +219,16 @@ public:
 		m_Vec.y -= y;
 	}
 
+	inline float getDistanceTo( const GLVec2& other ) const
+	{
+		return glm::distance(m_Vec, other.m_Vec);
+	}
+
+	inline float getDistanceToSquared( const GLVec2& other ) const
+	{
+		return glm::distance2(m_Vec, other.m_Vec);
+	}
+
 };
 
 struct GLVec3
@@ -330,6 +340,16 @@ public:
 		GLVec3 out;
 		out.m_Vec = glm::cross(m_Vec, rhs.m_Vec);
 		return out;
+	}
+
+	inline float getDistanceTo( const GLVec3& other ) const
+	{
+		return glm::distance(m_Vec, other.m_Vec);
+	}
+
+	inline float getDistanceToSquared( const GLVec3& other ) const
+	{
+		return glm::distance2(m_Vec, other.m_Vec);
 	}
 
 };
@@ -456,6 +476,16 @@ public:
 	inline float dot( const GLVec4& rhs ) const
 	{
 		return glm::dot(m_Vec, rhs.m_Vec);
+	}
+
+	inline float getDistanceTo( const GLVec4& other ) const
+	{
+		return glm::distance(m_Vec, other.m_Vec);
+	}
+
+	inline float getDistanceToSquared( const GLVec4& other ) const
+	{
+		return glm::distance2(m_Vec, other.m_Vec);
 	}
 
 };

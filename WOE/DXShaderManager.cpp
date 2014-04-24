@@ -1,5 +1,7 @@
 #include "DXShaderManager.h"
 
+#if defined(_WOE_DIRECTX)
+
 #include "Log.h"
 #include "Game.h"
 #include "GraphicsSystem.h"
@@ -110,3 +112,5 @@ bool DXShaderManager::loadShaderFromFile( const string& filename, const ShaderTy
 
 	return true;
 }
+
+#endif // _WOE_DIRECTX

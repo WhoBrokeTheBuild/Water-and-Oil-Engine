@@ -10,9 +10,16 @@ class GLRenderTarget :
 {
 public:
 
-	inline GLRenderTarget( void ) { }
+	GLRenderTarget( void );
 
 	virtual inline string getClassName( void ) const { return "GL Render Target"; }
+
+	virtual void render( Entity* entity );
+
+protected:
+
+	GLuint		m_FrameDataBuffer,
+				m_EntityDataBuffer;
 
 };
 

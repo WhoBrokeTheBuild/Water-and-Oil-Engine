@@ -4,6 +4,8 @@
 
 bool GLTexture::loadFile( const string& filename )
 {
+
+
 	return false;
 }
 

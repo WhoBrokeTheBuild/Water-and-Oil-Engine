@@ -10,6 +10,8 @@
 #include "Vector.h"
 #include "Matrix.h"
 
+#include "Entity.h"
+
 class GameTime;
 
 class Game :
@@ -66,6 +68,10 @@ private:
 	bool				m_Running;
 	
 	GameTime*			mp_GameTime;
+
+
+
+	Entity* mp_TestEntity;
 
 };
 

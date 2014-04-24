@@ -3,6 +3,9 @@
 
 #include <Arc/ManagedObject.h>
 
+#include "ShaderData.h"
+#include "Entity.h"
+
 using Arc::ManagedObject;
 
 class BaseRenderTarget :
@@ -10,8 +13,13 @@ class BaseRenderTarget :
 {
 public:
 
+	virtual void render( Entity* entity ) = 0;
+
 protected:
 
+	FrameShaderData		m_FrameShaderData;
+
+	EntityShaderData	m_EntityShaderData;
 
 };
 

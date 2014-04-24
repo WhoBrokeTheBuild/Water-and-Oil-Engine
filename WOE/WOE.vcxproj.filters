@@ -79,6 +79,9 @@
     <Filter Include="Project\Graphics\ShaderManager">
       <UniqueIdentifier>{ff499713-723c-454b-ae55-70af2d087dae}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Project\Graphics\Mesh">
+      <UniqueIdentifier>{625e9f51-8d62-4bc3-88fc-55542152ea88}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -162,7 +165,21 @@
     <ClCompile Include="GLShaderManager.cpp">
       <Filter>Project\Graphics\ShaderManager</Filter>
     </ClCompile>
-    <ClCompile Include="BaseShaderManager.cpp" />
+    <ClCompile Include="Entity.cpp">
+      <Filter>Project\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseShaderManager.cpp">
+      <Filter>Project\Graphics\ShaderManager</Filter>
+    </ClCompile>
+    <ClCompile Include="DXMesh.cpp">
+      <Filter>Project\Graphics\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="GLMesh.cpp">
+      <Filter>Project\Graphics\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="Model.cpp">
+      <Filter>Project\Graphics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -327,8 +344,37 @@
     <ClInclude Include="GLShaderManager.h">
       <Filter>Project\Graphics\ShaderManager</Filter>
     </ClInclude>
-    <ClInclude Include="BaseShaderManager.h" />
     <ClInclude Include="ShaderTypes.h">
+      <Filter>Project\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Project\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseShaderManager.h">
+      <Filter>Project\Graphics\ShaderManager</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderData.h">
+      <Filter>Project\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Model.h">
+      <Filter>Project\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseMesh.h">
+      <Filter>Project\Graphics\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="DXMesh.h">
+      <Filter>Project\Graphics\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="GLMesh.h">
+      <Filter>Project\Graphics\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>Project\Graphics\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="PrimitiveTypes.h">
+      <Filter>Project\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderInfo.h">
       <Filter>Project\Graphics</Filter>
     </ClInclude>
   </ItemGroup>

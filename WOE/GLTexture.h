@@ -17,6 +17,12 @@ public:
 		  m_TexID(INVALID_GL_TEXTURE_ID)
 	{ }
 
+	inline ~GLTexture( void )
+	{
+		if (m_TexID)
+			glDeleteTextures(1, &m_TexID);
+	}
+
 	virtual bool loadFile( const string& filename );
 
 protected:
