@@ -10,6 +10,19 @@
 #include <d3dcompiler.h>
 #include "ShaderTypes.h"
 
+struct DXShaderProgram
+{
+public:
+
+	DXShaderProgram( void )
+		: pVertexShader(nullptr),
+		  pPixelShader(nullptr)
+	{ }
+
+	ID3D11VertexShader* pVertexShader;
+	ID3D11PixelShader*  pPixelShader;
+};
+
 class DXShaderManager :
 	public BaseShaderManager
 {
@@ -17,12 +30,18 @@ public:
 
 	virtual inline string getClassName( void ) const { return "DX Shader Manager"; }
 
-	bool loadShaderFromFile( const string& filename, const ShaderTypes& type );
+	virtual bool loadShaderProgram( const string& name, const ArrayList<ShaderInfo> shaders );
 
-	ID3D11VertexShader* mp_VertexShader;
-	ID3D11PixelShader*  mp_PixelShader;
+	virtual bool hasShaderProgram( const string& name );
+	virtual bool useShaderProgram( const string& name );
 
 protected:
+
+	
+	ID3D11VertexShader* loadVertexShaderFromFile( const string& filename );
+	ID3D11PixelShader* loadPixelShaderFromFile( const string& filename );
+
+	Map<string, DXShaderProgram> m_Programs;
 
 };
 

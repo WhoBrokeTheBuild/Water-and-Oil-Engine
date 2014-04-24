@@ -11,8 +11,8 @@ struct ShaderInfo
 public:
 
 	inline ShaderInfo( const string& filename, const ShaderTypes& type )
-		: Filename(Filename),
-		  Type(Type)
+		: Filename(filename),
+		  Type(type)
 	{ }
 
 	string Filename;

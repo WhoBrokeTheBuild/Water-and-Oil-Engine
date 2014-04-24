@@ -57,6 +57,15 @@ GLGraphicsSystem::GLGraphicsSystem( const int& width, const int& height, const s
 
 	glfwSetFramebufferSizeCallback(mp_GLFWWindow, glfwResize);
 
+	glewExperimental = GL_TRUE;
+	GLenum ret = glewInit();
+	if (ret != GLEW_OK)
+	{
+		Log::ErrorFmt(getClassName(), "Failed to initialize GLEW (Error #%d, %s)", ret, glewGetErrorString(ret));
+		system("PAUSE");
+		exit(EXIT_FAILURE);
+	}
+
 	mp_RenderTarget = New RenderTarget();
 	mp_ShaderManager = New ShaderManager();
 

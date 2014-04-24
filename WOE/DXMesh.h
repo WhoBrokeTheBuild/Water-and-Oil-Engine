@@ -30,6 +30,8 @@ public:
 
 private:
 
+	ID3D11Buffer*		mp_VertexBuffer;
+
 };
 
 #endif // _WOE_DIRECTX

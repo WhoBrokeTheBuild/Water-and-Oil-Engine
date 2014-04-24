@@ -21,13 +21,13 @@ public:
 		  m_IndexCount(0)
 	{ }
 
-	virtual bool setData( const PrimitiveTypes& type, const VertexShaderData* pVertexData, const unsigned int& count ) = 0;
+	virtual bool setData( const PrimitiveTypes& type, const VertexShaderData* pVertexData, const unsigned int& count, const unsigned int* pIndexes, const int& indexCount  ) = 0;
 
-	inline bool setData( const PrimitiveTypes& type, const ArrayList<VertexShaderData>& vertexData )
+	inline bool setData( const PrimitiveTypes& type, const ArrayList<VertexShaderData>& vertexData, const ArrayList<unsigned int>& indexes )
 	{
-		if (vertexData.isEmpty())
+		if (vertexData.isEmpty() | indexes.isEmpty())
 			return false;
-		return setData(type, (const VertexShaderData*)&vertexData[0], vertexData.getSize());
+		return setData(type, (const VertexShaderData*)&vertexData[0], vertexData.getSize(), (const unsigned int*)indexes[0], indexes.getSize());
 	}
 
 	virtual void render( void ) = 0;

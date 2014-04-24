@@ -40,15 +40,6 @@ Args* Game::GetArgs(void)
 	return sp_Args;
 }
 
-//#include "DXHeader.h"
-//
-//using namespace DirectX;
-//
-//struct SimpleVertex
-//{
-//	XMFLOAT3 Pos;
-//};
-
 Game::Game( void )
 {
 	Log::Info(getClassName(), "Starting Up");
@@ -64,20 +55,24 @@ Game::Game( void )
 
 	mp_TestEntity = New Entity(Vec3::ZERO);
 
+	ArrayList<ShaderInfo> shaders;
 
+#if defined(_WOE_OPENGL)
 
-	//mp_GraphicsSystem->getShaderManager()->loadShaderFromFile("../Shaders/HLSL/Test_VS.fx", ShaderTypes::WOE_SHADER_TYPE_VERTEX);
-	//mp_GraphicsSystem->getShaderManager()->loadShaderFromFile("../Shaders/HLSL/Test_PS.fx", ShaderTypes::WOE_SHADER_TYPE_PIXEL);
-	//
-	//ID3D11Buffer*           g_pVertexBuffer = nullptr;
-	//
-	//// Create vertex buffer
-	//SimpleVertex vertices[] =
-	//{
-	//	XMFLOAT3(  0.0f,  0.5f, 0.5f ), // top
-	//	XMFLOAT3(  0.5f, -0.5f, 0.5f ), // bottom right
-	//	XMFLOAT3( -0.5f, -0.5f, 0.5f ), // bottom left
-	//};
+	shaders.add(ShaderInfo("../Shaders/GLSL/Test.vs.glsl", ShaderTypes::WOE_SHADER_TYPE_VERTEX));
+	shaders.add(ShaderInfo("../Shaders/GLSL/Test.fs.glsl", ShaderTypes::WOE_SHADER_TYPE_PIXEL));
+
+#elif defined(_WOE_DIRECTX)
+
+	shaders.add(ShaderInfo("../Shaders/HLSL/Test_VS.fx", ShaderTypes::WOE_SHADER_TYPE_VERTEX));
+	shaders.add(ShaderInfo("../Shaders/HLSL/Test_PS.fx", ShaderTypes::WOE_SHADER_TYPE_PIXEL));
+
+#endif // _WOE_DIRECTX
+
+	getGraphicsSystem()->getShaderManager()->loadShaderProgram("test", shaders);
+
+	// Create vertex buffer
+
 	//D3D11_BUFFER_DESC bd;
 	//ZeroMemory( &bd, sizeof(bd) );
 	//bd.Usage = D3D11_USAGE_DEFAULT;
@@ -101,6 +96,8 @@ Game::Game( void )
 	//
 	//// Set primitive topology
 	//getGraphicsSystem()->getDXDeviceContext()->IASetPrimitiveTopology( D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST );
+	//// Render
+	//getGraphicsSystem()->getDXDeviceContext()->Draw( 3, 0 );
 
 
 	Log::Info(getClassName(), "Finished");
@@ -109,6 +106,8 @@ Game::Game( void )
 Game::~Game( void )
 {
 	Log::Info(getClassName(), "Shutting Down");
+
+	delete mp_TestEntity;
 
 	delete mp_InputSystem;
 	delete mp_GraphicsSystem;
@@ -156,11 +155,25 @@ void Game::render(void)
 {
 	getGraphicsSystem()->beginRender();
 
-	getGraphicsSystem()->getRenderTarget()->render(mp_TestEntity);
+	getGraphicsSystem()->getShaderManager()->useShaderProgram("test");
 
-	//getGraphicsSystem()->getDXDeviceContext()->VSSetShader( getGraphicsSystem()->getShaderManager()->mp_VertexShader, nullptr, 0 );
-	//getGraphicsSystem()->getDXDeviceContext()->PSSetShader( getGraphicsSystem()->getShaderManager()->mp_PixelShader, nullptr, 0 );
-	//getGraphicsSystem()->getDXDeviceContext()->Draw( 3, 0 );
+
+	VertexShaderData vertices[] =
+	{
+		VertexShaderData(Vec3( 0.0f,  0.5f, 0.5f)), // top
+		VertexShaderData(Vec3( 0.5f, -0.5f, 0.5f)), // bottom right
+		VertexShaderData(Vec3(-0.5f, -0.5f, 0.5f))  // bottom left
+	};
+
+	unsigned int indexes[] = { 0, 1, 2 };
+
+	Mesh mesh;
+	mesh.setData(PrimitiveTypes::WOE_PRIMITIVE_TYPE_TRIANGLE, vertices, 3, indexes, 3);
+
+	mesh.render();
+	
 
 	getGraphicsSystem()->endRender();
+
+	system("PAUSE");
 }

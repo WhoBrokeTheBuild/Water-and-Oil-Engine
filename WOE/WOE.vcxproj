@@ -205,6 +205,10 @@
       <FileType>Document</FileType>
     </Text>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Shaders\GLSL\Test.fs.glsl" />
+    <None Include="..\Shaders\GLSL\Test.vs.glsl" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

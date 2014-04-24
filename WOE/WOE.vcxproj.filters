@@ -400,4 +400,12 @@
       <Filter>Project\Shaders\HLSL</Filter>
     </FxCompile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Shaders\GLSL\Test.fs.glsl">
+      <Filter>Project\Shaders\GLSL</Filter>
+    </None>
+    <None Include="..\Shaders\GLSL\Test.vs.glsl">
+      <Filter>Project\Shaders\GLSL</Filter>
+    </None>
+  </ItemGroup>
 </Project>
